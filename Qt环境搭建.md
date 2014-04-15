@@ -48,3 +48,6 @@ _i686-linux-android-g++: error trying to exec 'cc1plus': execvp: No such file or
     * Ubuntu的ndk解压缩后很多链接和权限都没有设置，需要进行设置才可进行编译，如果遇到相关问题，可以考虑这方面的因素。
 
 
+####windows build
+
+http://stackoverflow.com/questions/22355570/building-a-static-version-of-qt-5-2-1-with-visual-studio-2013
