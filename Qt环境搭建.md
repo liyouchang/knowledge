@@ -19,9 +19,9 @@ windows编译32位静态库
 configure  -static -no-icu -platform win32-msvc2010 -confirm-license -developer-build -opensource -nomake examples -nomake tests -prefix D:\Qt\5.2.1\msvc2010-static
 
 
-configure -prefix D:\Qt\5.2.1\msvc2010-static -platform win32-msvc2010  -confirm-license  -opensource -static -nomake tests -nomake examples  -no-compile-examples -skip declarative -skip doc -skip graphicaleffects  -skip multimedia -skip quick1 -skip quickcontrols -skip script -skip sensors -skip serialport -skip svg -skip tools -skip translations -skip webkit -skip webkit-examples -skip x11extras -skip xmlpatterns
+configure -prefix D:\Qt\5.2.1\msvc2010-static -platform win32-msvc2010  -confirm-license  -opensource -static -nomake tests -nomake examples  -no-compile-examples -skip declarative -skip doc -skip graphicaleffects  -skip multimedia -skip quick1 -skip quickcontrols -skip script -skip sensors -skip serialport -skip svg -skip tools -skip translations -skip webkit -skip webkit-examples -skip x11extras -skip xmlpatterns -no-opengl -debug-and-release
 
-
+configure -prefix D:\Qt\5.2.1\msvc2010-static -platform win32-msvc2010  -confirm-license  -opensource -static -nomake tests -nomake examples  -no-compile-examples -skip declarative -skip graphicaleffects  -skip multimedia -skip quick1 -skip quickcontrols -skip script -skip sensors -skip serialport -skip svg -skip tools -skip translations -skip webkit -skip webkit-examples -skip x11extras -skip xmlpatterns  -debug-and-release -no-icu
 
 -xplantform
 
