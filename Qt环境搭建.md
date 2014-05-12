@@ -27,7 +27,7 @@ configure -prefix D:\Qt\5.2.1\msvc2010-static -platform win32-msvc2010  -confirm
 
 
 ####build for hisi arm
-./configure -no-gtkstyle  -static -no-icu -verbose -no-c++11 -xplatform  hisi-linux-arm -confirm-license -developer-build -opensource -nomake examples -nomake tests -prefix /opt/Qt/hisi
+./configure -no-gtkstyle  -static -no-gui -no-icu -verbose -no-c++11 -xplatform  linux-arm-hisi  -confirm-license -opensource -nomake examples -nomake tests -prefix /opt/Qt/hisi -skip activeqt -skip androidextras -skip connectivity -skip declarative -skip doc -skip graphicaleffects -skip imageformats -skip location -skip macextras -skip multimedia -skip quick1 -skip quickcontrols -skip script -skip sensors -skip serialport -skip svg -skip tools -skip translations -skip webkit -skip webkit-examples -skip winextras  -skip x11extras -skip xmlpatterns
 
 
 

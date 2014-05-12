@@ -9,8 +9,6 @@ telnet 用户名 root 密码 970326@dmin
 
 终端的tmp目录是内存，其他目录是flash，这该死的终端内存比flash要大。
 
-####开机启动
-/etc/init.d/rcS 文件添加脚本
 
 ###arm 编程
 
