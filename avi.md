@@ -1,0 +1,3 @@
+AtomicBrowser2(AVI).exe 程序可以查看AVI文件格式
+如果MainAVIHeader的dwTotalFrame和AVIStreamHeader的dwLength填写不正确，可能导致索引错误
+帧率和码率要填写正确
