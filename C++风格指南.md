@@ -1075,12 +1075,13 @@ Boost代码质量普遍较高, 可移植性好, 填补了 C++ 标准库很多空
 
 ###6.1. 通用命名规则
 
-	Tip
+>Tip	
 	函数命名, 变量命名, 文件命名应具备描述性; 不要过度缩写. 类型和变量应该是名词, 函数名可以用 “命令性” 动词.
     
-如何命名:
+######如何命名:
 
-尽可能给出描述性的名称. 不要节约行空间, 让别人很快理解你的代码更重要. 好的命名风格:
+尽可能给出描述性的名称. 不要节约行空间, 让别人很快理解你的代码更重要. 
+>好的命名风格:
 ```cpp
 int num_errors;                  // Good.
 int num_completed_connections;   // Good.
@@ -1091,37 +1092,38 @@ int n;                           // Bad - meaningless.
 int nerr;                        // Bad - ambiguous abbreviation.
 int n_comp_conns;                // Bad - ambiguous abbreviation.
 ```
-类型和变量名一般为名词: 如 FileOpener, num_errors.
 
-函数名通常是指令性的 (确切的说它们应该是命令), 如 OpenFile(), set_num_errors(). 取值函数是个特例 (在 函数命名 处详细阐述), 函数名和它要取值的变量同名.
+类型和变量名一般为名词: 如 `FileOpener`, `num_errors`.
 
-缩写:
+函数名通常是指令性的 (确切的说它们应该是命令), 如 `OpenFile()`, `set_num_errors()`. 取值函数是个特例 (在 函数命名 处详细阐述), 函数名和它要取值的变量同名.
+
+######缩写:
 
 除非该缩写在其它地方都非常普遍, 否则不要使用. 例如:
-```cpp
+
+>```cpp
 // Good
 // These show proper names with no abbreviations.
 int num_dns_connections;  // 大部分人都知道 "DNS" 是啥意思.
 int price_count_reader;   // OK, price count. 有意义.
 ```
-
-    Warning
-    ``cpp
-    // Bad!
-    // Abbreviations can be confusing or ambiguous outside a small group.
-    int wgc_connections;  // Only your group knows what this stands for.
-    int pc_reader;        // Lots of things can be abbreviated "pc".
-    ```
+==Warning==
+```cpp
+// Bad!
+// Abbreviations can be confusing or ambiguous outside a small group.
+int wgc_connections;  // Only your group knows what this stands for.
+int pc_reader;        // Lots of things can be abbreviated "pc".
+```
     
 永远不要用省略字母的缩写:
-```cpp
+>```cpp
 int error_count;  // Good.
 int error_cnt;    // Bad.
 ```
 
 ###6.2. 文件命名
 
-	Tip
+>Tip	
 	文件名要全部小写, 可以包含下划线 (_) 或连字符 (-). 按项目约定来.
     
 可接受的文件命名:
@@ -1131,9 +1133,10 @@ my-useful-class.cc
 myusefulclass.cc
 ```
 
-C++ 文件要以 .cc 结尾, 头文件以 .h 结尾.
+`C++` 文件要以 .cc 结尾, 头文件以 .h 结尾.	
+==kaer== `C++`文件可以以.cpp结尾
 
-不要使用已经存在于 /usr/include 下的文件名 (yospaly 注: 即编译器搜索系统头文件的路径), 如 db.h.
+不要使用已经存在于 /usr/include 下的文件名 (注: 即编译器搜索系统头文件的路径), 如 db.h.
 
 通常应尽量让文件名更加明确. http_server_logs.h 就比 logs.h 要好. 定义类时文件名一般成对出现, 如 foo_bar.h 和 foo_bar.cc, 对应于类 FooBar.
 
@@ -1147,7 +1150,7 @@ url_table-inl.h  // Inline functions that include lots of code.
 
 ###6.3. 类型命名
 
-	Tip
+>Tip	
 	类型名称的每个单词首字母均大写, 不包含下划线: MyExcitingClass, MyExcitingEnum.
     
 所有类型命名 —— 类, 结构体, 类型定义 (typedef), 枚举 —— 均使用相同约定. 例如:
@@ -1165,38 +1168,43 @@ enum UrlTableErrors { ...
 ```
 
 
-6.4. 变量命名
+###6.4. 变量命名==kaer==
 
-	Tip
-	变量名一律小写, 单词之间用下划线连接. 类的成员变量以下划线结尾, 如:
+>Tip	
+	遵循Qt的变量命名风格
     
-	```cpp
-	my_exciting_local_variable
-	my_exciting_member_variable_
-    ```
+#####类的成员变量命名:
+如
+```cpp
+class KaerClasss{
+	std::string userName;
+    int parentId;
+}
+```
     
-普通变量命名:
-
-举例:
-
+#####普通变量命名:
+可以使用下划线分割的命名方法
+>举例:
+```cpp
 string table_name;  // OK - uses underscore.
 string tablename;   // OK - all lowercase.
+string tableName;   // OK - mixed case.
+```
 
-Warning
-string tableName;   // Bad - mixed case.
-
-结构体变量:
-
-结构体的数据成员可以和普通变量一样, 不用像类那样接下划线:
-
+#####结构体变量:
+为区分结构体变量与类变量的区别，使用下划线分割的命名方法:
+>```cpp
 struct UrlTableProperties {
     string name;
     int num_entries;
 }
+```
 
 结构体与类的讨论参考 结构体 vs. 类 一节.
-全局变量:
-对全局变量没有特别要求, 少用就好, 但如果你要用, 可以用 g_ 或其它标志作为前缀, 以便更好的区分局部变量.
+
+#####全局变量:
+
+对全局变量没有特别要求, 少用就好, 但如果你要用, 用 g_ 或其它标志作为前缀, 以便更好的区分局部变量.
 
 ###6.5. 常量命名
 
@@ -1241,8 +1249,11 @@ class MyClass {
 
 ###6.8. 枚举命名
 
-	Tip
-	枚举的命名应当和 常量 或 宏 一致: kEnumName 或是 ENUM_NAME.
+>Tip	
+	枚举的命名应当和 常量 或 宏 一致: kEnumName 或是 ENUM_NAME.	
+    优先选择常量风格的命名方式.
+
+
 单独的枚举值应该优先采用 常量 的命名方式. 但 宏 方式的命名也可以接受. 枚举名 UrlTableErrors (以及 AlternateUrlTableErrors) 是类型, 所以要用大小写混合的方式.
 ```cpp
 enum UrlTableErrors {
@@ -1256,12 +1267,12 @@ enum AlternateUrlTableErrors {
     MALFORMED_INPUT = 2,
 };
 ```
-2009 年 1 月之前, 我们一直建议采用 宏 的方式命名枚举值. 由于枚举值和宏之间的命名冲突, 直接导致了很多问题. 由此, 这里改为优先选择常量风格的命名方式. 新代码应该尽可能优先使用常量风格. 但是老代码没必要切换到常量风格, 除非宏风格确实会产生编译期问题.
 
 ###6.9. 宏命名
 
-	Tip
+>Tip	
 	你并不打算 使用宏, 对吧? 如果你一定要用, 像这样命名: MY_MACRO_THAT_SCARES_SMALL_CHILDREN.
+
 参考 预处理宏 <preprocessor-macros>; 通常 不应该 使用宏. 如果不得不用, 其命名像枚举命名一样全部大写, 使用下划线:
 ```cpp
 #define ROUND(x) ...
@@ -1270,18 +1281,21 @@ enum AlternateUrlTableErrors {
 
 ###6.10. 命名规则的特例
 
-    Tip
+>Tip	
 	如果你命名的实体与已有 C/C++ 实体相似, 可参考现有命名策略.
-bigopen():
-函数名, 参照 open() 的形式
-uint:
-typedef
-bigpos:
-struct 或 class, 参照 pos 的形式
-sparse_hash_map:
-STL 相似实体; 参照 STL 命名约定
-LONGLONG_MAX:
-常量, 如同 INT_MAX
+
+`bigopen()`: 函数名, 参照 `open()` 的形式
+
+`uint`: `typedef`
+
+`bigpos`: `struct` 或 `class`, 参照 `pos` 的形式
+
+`sparse_hash_map`:	STL 相似实体; 参照 STL 命名约定
+
+`LONGLONG_MAX`: 常量, 如同 INT_MAX
+
+==kaer==使用Qt编写程序，变量名称可以使用驼峰命名法
+
 
 
 7. 注释
@@ -1323,6 +1337,20 @@ LONGLONG_MAX:
 通常, `.h` 文件要对所声明的类的功能和用法作简单说明. `.cc` 文件通常包含了更多的实现细节或算法技巧讨论,  如果你感觉这些实现细节或算法技巧讨论对于理解 `.h` 文件有帮助, 可以该注释挪到 `.h`, 并在 `.cc` 中指出文档在 `.h`.
     
 不要简单的在 `.h` 和 `.cc` 间复制注释. 这种偏离了注释的实际意义.
+
+>==kaer==例如
+```cpp
+/*
+ *
+ * Copyright 2014 Kaer Electric Co.,Ltd
+ * Listens see <http://www.gnu.org/licenses/>.
+ * AUTHORS somebody
+ *
+ * RecorderAvi 实现了视频数据存储成avi文件的功能
+ *
+ */
+```
+
 
 ###7.3. 类注释
 
@@ -1463,6 +1491,8 @@ DoSomethingElseThatIsLonger();  // Comment here so there are two spaces between
 }
 ```
 
+
+
 #####NULL, true/false, 1, 2, 3...:
 
 向函数传入 ``NULL``, 布尔值或整数时, 要注释说明含义, 或使用常量让代码望文知意. 例如, 对比:
@@ -1533,3 +1563,640 @@ bool success = CalculateSomething(interesting_value,
 ```     
 
 如果加 `TODO` 是为了在 "将来某一天做某事", 可以附上一个非常明确的时间 "Fix by November 2005"), 或者一个明确的事项 ("Remove this code when all clients can handle XML responses.").
+
+
+8. 格式
+------------
+
+代码风格和格式确实比较随意, 但一个项目中所有人遵循同一风格是非常容易的. 个体未必同意下述每一处格式规则, 但整个项目服从统一的编程风格是很重要的, 只有这样才能让所有人能很轻松的阅读和理解代码.
+
+
+###8.1. 行长度
+
+>tip	
+    每一行代码字符数不超过 80.
+
+>==kaer==在Qt Creater中 “工具->选项->文本编辑器->显示" 选择 "显示右边空白在列:", 可以划出一个80列的分隔线,代码尽量不要超过这条线.
+    
+我们也认识到这条规则是有争议的, 但很多已有代码都已经遵照这一规则, 我们感觉一致性更重要.
+
+优点:
+
+提倡该原则的人主张强迫他们调整编辑器窗口大小很野蛮. 很多人同时并排开几个代码窗口, 根本没有多余空间拉伸窗口. 大家都把窗口最大尺寸加以限定, 并且 80 列宽是传统标准. 为什么要改变呢?
+    
+缺点:
+
+反对该原则的人则认为更宽的代码行更易阅读. 80 列的限制是上个世纪 60 年代的大型机的古板缺陷; 现代设备具有更宽的显示屏, 很轻松的可以显示更多代码.
+    
+结论:
+
+80 个字符是最大值.
+    
+特例:
+- 如果一行注释包含了超过 80 字符的命令或 URL, 出于复制粘贴的方便允许该行超过 80 字符.
+- 包含长路径的 `#include` 语句可以超出80列. 但应该尽量避免.
+- 头文件保护可以无视该原则.
+    
+###8.2. 非 ASCII 字符
+
+>tip	
+    尽量不使用非 ASCII 字符, 使用时必须使用 UTF-8 编码.
+
+即使是英文, 也不应将用户界面的文本硬编码到源代码中, 因此非 ASCII 字符要少用. 特殊情况下可以适当包含此类字符. 如, 代码分析外部数据文件时, 可以适当硬编码数据文件中作为分隔符的非 ASCII 字符串; 更常见的是 (不需要本地化的) 单元测试代码可能包含非 ASCII 字符串. 此类情况下, 应使用 UTF-8 编码, 因为很多工具都可以理解和处理 UTF-8 编码. 十六进制编码也可以, 能增强可读性的情况下尤其鼓励 —— 比如 ``"\xEF\xBB\xBF"`` 在 Unicode 中是 *零宽度 无间断* 的间隔符号, 如果不用十六进制直接放在 UTF-8 格式的源文件中, 是看不到的. (yospaly 注: ``"\xEF\xBB\xBF"`` 通常用作 UTF-8 with BOM 编码标记)
+
+
+###8.3. 空格还是制表位
+
+>tip	
+    只使用空格, 每次缩进 2 个空格.
+
+我们使用空格缩进. 不要在代码中使用制符表. 你应该设置编辑器将制符表转为空格.
+
+###8.4. 函数声明与定义
+
+>tip	
+    返回类型和函数名在同一行, 参数也尽量放在同一行.
+>==kaer==如果需要分行，尽量使一行的最后一个字符为符号
+    
+函数看上去像这样:
+```c++
+ReturnType ClassName::FunctionName(Type par_name1, Type par_name2) {
+    DoSomething();
+    ...
+}
+```
+如果同一行文本太多, 放不下所有参数:
+```c++
+ReturnType ClassName::ReallyLongFunctionName(Type par_name1,
+                                             Type par_name2,
+                                             Type par_name3) {
+    DoSomething();
+    ...
+}
+``` 
+甚至连第一个参数都放不下:
+```c++
+ReturnType LongClassName::ReallyReallyReallyLongFunctionName(
+        Type par_name1,  // 4 space indent
+        Type par_name2,
+        Type par_name3) {
+    DoSomething();  // 2 space indent
+    ...
+}
+```
+
+注意以下几点:
+
+- 返回值总是和函数名在同一行;
+
+- 左圆括号总是和函数名在同一行;
+
+- 函数名和左圆括号间没有空格;
+
+- 圆括号与参数间没有空格;
+
+- 左大括号总在最后一个参数同一行的末尾处;
+
+- 右大括号总是单独位于函数最后一行;
+
+- 右圆括号和左大括号间总是有一个空格;
+
+- 函数声明和实现处的所有形参名称必须保持一致;
+
+- 所有形参应尽可能对齐;
+
+- 缺省缩进为 ==4== 个空格;==kaer==
+
+- 换行后的参数保持 ==8== 个空格的缩进;==kaer==
+
+如果函数声明成 ``const``, 关键字 ``const`` 应与最后一个参数位于同一行:
+```c++
+// Everything in this function signature fits on a single line
+ReturnType FunctionName(Type par) const {
+    ...
+}
+
+// This function signature requires multiple lines, but
+// the const keyword is on the line with the last parameter.
+ReturnType ReallyLongFunctionName(Type par1,
+                                  Type par2) const {
+    ...
+}
+```
+
+如果有些参数没有用到, 在函数定义处将参数名注释起来:
+```c++
+// Always have named parameters in interfaces.
+class Shape {
+	public:
+		virtual void Rotate(double radians) = 0;
+}
+
+// Always have named parameters in the declaration.
+class Circle : public Shape {
+public:
+	virtual void Rotate(double radians);
+}
+
+// Comment out unused named parameters in definitions.
+void Circle::Rotate(double /*radians*/) {}
+```
+==warning==
+```c++
+// Bad - if someone wants to implement later, it's not clear what the
+// variable means.
+    void Circle::Rotate(double) {}
+```
+
+###8.5. 函数调用
+
+>tip	
+    尽量放在同一行, 否则, 将实参封装在圆括号中.
+    
+函数调用遵循如下形式:
+```c++
+bool retval = DoSomething(argument1, argument2, argument3);
+```
+如果同一行放不下, 可断为多行, 后面每一行都和第一个实参对齐, 左圆括号后和右圆括号前不要留空格:
+``` c++        
+bool retval = DoSomething(averyveryveryverylongargument1,
+                          argument2, argument3);
+```                                  
+如果函数参数很多, 出于可读性的考虑可以在每行只放一个参数:
+```c++     
+bool retval = DoSomething(argument1,
+                          argument2,
+                          argument3,
+                          argument4);
+```                                  
+如果函数名非常长, 以至于超过 :ref:`行最大长度 <line-length>`, 可以将所有参数独立成行:
+```c++        
+if (...) {
+	...
+    ...
+    if (...) {
+    DoSomethingThatRequiresALongFunctionName(
+        	very_long_argument1,  // ==8== space indent
+        	argument2,
+        	argument3,
+        	argument4);
+}
+```
+
+###8.6. 条件语句
+
+>tip	
+    倾向于不在圆括号内使用空格. 关键字 ``else`` 另起一行.
+    
+对基本条件语句有两种可以接受的格式. 一种在圆括号和条件之间有空格, 另一种没有.
+
+最常见的是没有空格的格式. 哪种都可以, 但 *保持一致性*. 如果你是在修改一个文件, 参考当前已有格式. 如果是写新的代码, 参考目录下或项目中其它文件. 还在徘徊的话, 就不要加空格了.
+```c++
+if (condition) {  // no spaces inside parentheses
+  ...  // 2 space indent.
+} else {  // The else goes on the same line as the closing brace.
+  ...
+}
+```
+如果你更喜欢在圆括号内部加空格:
+```c++
+if ( condition ) {  // spaces inside parentheses - rare
+  ...  // 2 space indent.
+} else {  // The else goes on the same line as the closing brace.
+  ...
+}
+```       
+注意所有情况下 ``if`` 和左圆括号间都有个空格. 右圆括号和左大括号之间也要有个空格:
+    ==warning==
+```c++     
+    if(condition)     // Bad - space missing after IF.
+    if (condition){   // Bad - space missing before {.
+    if(condition){    // Doubly bad.
+```
+```c++
+if (condition) {  // Good - proper space after IF and before {.
+```  
+如果能增强可读性, 简短的条件语句允许写在同一行. 只有当语句简单并且没有使用 ``else`` 子句时使用:
+```c++
+if (x == kFoo) return new Foo();
+if (x == kBar) return new Bar();
+```     
+如果语句有 ``else`` 分支则不允许:
+==warning==
+```c++
+// Not allowed - IF statement on one line when there is an ELSE clause
+if (x) DoThis();
+else DoThat();
+```
+通常, 单行语句不需要使用大括号, 如果你喜欢用也没问题; 复杂的条件或循环语句用大括号可读性会更好. 也有一些项目要求 ``if`` 必须总是使用大括号:
+```c++
+if (condition)
+    DoSomething();  // 4 space indent.
+
+if (condition) {
+    DoSomething();  // 4 space indent.
+}
+```
+但如果语句中某个 ``if-else`` 分支使用了大括号的话, 其它分支也必须使用:
+==warning==
+```c++    
+// Not allowed - curly on IF but not ELSE
+if (condition) {
+    foo;
+} else
+    bar;
+
+// Not allowed - curly on ELSE but not IF
+if (condition)
+    foo;
+else {
+    bar;
+}
+```
+    
+```c++
+// Curly braces around both IF and ELSE required because
+// one of the clauses used braces.
+if (condition) {
+  foo;
+} else {
+  bar;
+}
+```
+
+###8.7. 循环和开关选择语句
+
+>tip	
+    ``switch`` 语句可以使用大括号分段. 空循环体应使用 ``{}`` 或 ``continue``.
+    
+``switch`` 语句中的 ``case`` 块可以使用大括号也可以不用, 取决于你的个人喜好. 如果用的话, 要按照下文所述的方法.
+
+如果有不满足 ``case`` 条件的枚举值, ``switch`` 应该总是包含一个 ``default`` 匹配 (如果有输入值没有 case 去处理, 编译器将报警). 如果 ``default`` 应该永远执行不到, 简单的加条 ``assert``:
+```c++
+switch (var) {
+  case 0: {  // 2 space indent
+    ...      // 4 space indent
+    break;
+  }
+  case 1: {
+    ...
+    break;
+  }
+  default: {
+    assert(false);
+  }
+}
+```
+空循环体应使用 ``{}`` 或 ``continue``, 而不是一个简单的分号.
+```c++
+while (condition) {
+  // Repeat test until it returns false.
+}
+for (int i = 0; i < kSomeNumber; ++i) {}  // Good - empty body.
+while (condition) continue;  // Good - continue indicates no logic.
+```
+==warning==
+```c++
+    while (condition);  // Bad - looks like part of do/while loop.
+```
+###8.8. 指针和引用表达式
+>tip	
+    句点或箭头前后不要有空格. 指针/地址操作符 (``*, &``) 之后不能有空格.
+    
+下面是指针和引用表达式的正确使用范例:
+ ```c++
+x = *p;
+p = &x;
+x = r.y;
+x = r->y;
+```
+注意:
+- 在访问成员时, 句点或箭头前后没有空格.
+- 指针操作符 ``*`` 或 ``&`` 后没有空格.
+    
+在声明指针变量或参数时, 星号与类型或变量名紧挨都可以:
+```c++
+// These are fine, space preceding.
+char *c;
+const string &str;
+
+// These are fine, space following.
+char* c;    // but remember to do "char* c, *d, *e, ...;"!
+const string& str;
+```
+==warning==
+```c++
+char * c;  // Bad - spaces on both sides of *
+const string & str;  // Bad - spaces on both sides of &
+```
+在单个文件内要保持风格一致, 所以, 如果是修改现有文件, 要遵照该文件的风格.
+
+###8.9. 布尔表达式
+>tip	
+    如果一个布尔表达式超过 :ref:`标准行宽 <line-length>`, 断行方式要统一一下.
+    
+下例中, 逻辑与 (``&&``) 操作符总位于行尾:
+```c++
+if (this_one_thing > this_other_thing &&
+    a_third_thing == a_fourth_thing &&
+    yet_another & last_one) {
+  ...
+}
+```        
+注意, 上例的逻辑与 (``&&``) 操作符均位于行尾. 可以考虑额外插入圆括号, 合理使用的话对增强可读性是很有帮助的.
+
+
+###8.10. 函数返回值
+
+>tip	
+    ``return`` 表达式中不要用圆括号包围.
+    
+函数返回时不要使用圆括号:
+```c++
+return x;  // not return(x);
+```  
+
+###8.11. 变量及数组初始化
+
+>tip	
+    用 ``=`` 或 ``()`` 均可.
+
+在二者中做出选择; 下面的方式都是正确的:
+```c++
+int x = 3;
+int x(3);
+string name("Some Name");
+string name = "Some Name";
+```
+
+###8.12. 预处理指令
+
+>tip	
+    预处理指令不要缩进, 从行首开始.
+    
+即使预处理指令位于缩进代码块中, 指令也应从行首开始.
+```c++        
+// Good - directives at beginning of line
+  if (lopsided_score) {
+#if DISASTER_PENDING      // Correct -- Starts at beginning of line
+    DropEverything();
+#endif
+    BackToNormal();
+  }
+```    
+==warning==
+```c++
+// Bad - indented directives
+  if (lopsided_score) {
+    #if DISASTER_PENDING  // Wrong!  The "#if" should be at beginning of line
+    DropEverything();
+    #endif                // Wrong!  Do not indent "#endif"
+    BackToNormal();
+  }
+```
+
+###8.13. 类格式
+
+>tip	
+    访问控制块的声明依次序是 ``public:``, ``protected:``, ``private:``, ==无缩进==
+
+类声明 (对类注释不了解的话, 参考 :ref:`类注释 <class-comments>`) 的基本格式如下:
+```c++
+class MyClass : public OtherClass {
+public:      // Note the 1 space indent!
+    MyClass();  // Regular 2 space indent.
+    explicit MyClass(int var);
+    ~MyClass() {}
+
+    void SomeFunction();
+    void SomeFunctionThatDoesNothing() {
+    }
+
+    void set_some_var(int var) { some_var_ = var; }
+    int some_var() const { return some_var_; }
+
+private:
+    bool SomeInternalFunction();
+
+    int some_var_;
+    int some_other_var_;
+    DISALLOW_COPY_AND_ASSIGN(MyClass);
+};
+```
+
+注意事项:
+- 所有基类名应在 80 列限制下尽量与子类名放在同一行.
+
+- 关键词 ``public:``, ``protected:``, ``private:`` 要缩进 1 个空格.
+
+- 除第一个关键词 (一般是 ``public``) 外, 其他关键词前要空一行. 如果类比较小的话也可以不空.
+
+- 这些关键词后不要保留空行.
+
+- ``public`` 放在最前面, 然后是 ``protected``, 最后是 ``private``.
+
+- 关于声明顺序的规则请参考 :ref:`声明顺序 <declaration-order>` 一节.
+
+###8.14. 初始化列表
+
+>tip	
+    构造函数初始化列表放在同一行或按四格缩进并排几行.
+    
+下面两种初始化列表方式都可以接受:
+    
+```c++
+// When it all fits on one line:
+MyClass::MyClass(int var) : some_var_(var), some_other_var_(var + 1) {
+```        
+或
+```c++
+// When it requires multiple lines, indent 4 spaces, putting the colon on
+// the first initializer line:
+MyClass::MyClass(int var)
+    : some_var_(var),             // 4 space indent
+      some_other_var_(var + 1) {  // lined up
+  ...
+  DoSomething();
+  ...
+}
+```
+###8.15. 名字空间格式化
+
+
+>tip	
+    名字空间内容不缩进.
+    
+名字空间不要增加额外的缩进层次, 例如:
+```c++     
+        namespace {
+
+        void foo() {  // Correct.  No extra indentation within namespace.
+          ...
+        }
+
+        }  // namespace
+```
+不要缩进名字空间:
+==warning==
+``` c++
+namespace {
+
+  // Wrong.  Indented when it should not be.
+  void foo() {
+    ...
+  }
+
+}  // namespace
+```
+
+
+
+###8.16. 水平留白
+
+>tip	
+    水平留白的使用因地制宜. 永远不要在行尾添加没意义的留白.
+    
+常规:
+```c++        
+void f(bool b) {  // Open braces should always have a space before them.
+  ...
+int i = 0;  // Semicolons usually have no space before them.
+int x[] = { 0 };  // Spaces inside braces for array initialization are
+int x[] = {0};    // optional.  If you use them, put them on both sides!
+// Spaces around the colon in inheritance and initializer lists.
+class Foo : public Bar {
+ public:
+  // For inline function implementations, put spaces between the braces
+  // and the implementation itself.
+  Foo(int b) : Bar(), baz_(b) {}  // No spaces inside empty braces.
+  void Reset() { baz_ = 0; }  // Spaces separating braces from implementation.
+  ...
+```
+添加冗余的留白会给其他人编辑时造成额外负担. 因此, 行尾不要留空格. 如果确定一行代码已经修改完毕, 将多余的空格去掉; 或者在专门清理空格时去掉（确信没有其他人在处理). (yospaly 注: 现在大部分代码编辑器稍加设置后, 都支持自动删除行首/行尾空格, 如果不支持, 考虑换一款编辑器或 IDE)
+
+
+循环和条件语句:
+```c++
+if (b) {          // Space after the keyword in conditions and loops.
+} else {          // Spaces around else.
+}
+while (test) {}   // There is usually no space inside parentheses.
+switch (i) {
+for (int i = 0; i < 5; ++i) {
+switch ( i ) {    // Loops and conditions may have spaces inside
+if ( test ) {     // parentheses, but this is rare.  Be consistent.
+for ( int i = 0; i < 5; ++i ) {
+for ( ; i < 5 ; ++i) {  // For loops always have a space after the
+  ...                   // semicolon, and may have a space before the
+                        // semicolon.
+switch (i) {
+  case 1:         // No space before colon in a switch case.
+    ...
+  case 2: break;  // Use a space after a colon if there's code after it.
+```
+操作符:
+```c++
+x = 0;              // Assignment operators always have spaces around
+                    // them.
+x = -5;             // No spaces separating unary operators and their
+++x;                // arguments.
+if (x && !y)
+  ...
+v = w * x + y / z;  // Binary operators usually have spaces around them,
+v = w*x + y/z;      // but it's okay to remove spaces around factors.
+v = w * (x + z);    // Parentheses should have no spaces inside them.
+```
+模板和转换:
+```c++
+vector<string> x;           // No spaces inside the angle
+y = static_cast<char*>(x);  // brackets (< and >), before
+                            // <, or between >( in a cast.
+vector<char *> x;           // Spaces between type and pointer are
+                            // okay, but be consistent.
+set<list<string> > x;       // C++ requires a space in > >.
+set< list<string> > x;      // You may optionally make use
+                       // symmetric spacing in < <.
+```
+
+###8.17. 垂直留白
+
+>tip	
+    垂直留白越少越好.
+
+这不仅仅是规则而是原则问题了: 不在万不得已, 不要使用空行. 尤其是: 两个函数定义之间的空行不要超过 2 行, 函数体首尾不要留空行, 函数体中也不要随意添加空行.
+
+基本原则是: 同一屏可以显示的代码越多, 越容易理解程序的控制流. 当然, 过于密集的代码块和过于疏松的代码块同样难看, 取决于你的判断. 但通常是垂直留白越少越好.
+
+==warning== 函数首尾不要有空行
+    
+```c++
+void Function() {
+
+  // Unnecessary blank lines before and after
+
+}
+```
+==warning== 代码块首尾不要有空行
+
+``` c++
+while (condition) {
+  // Unnecessary blank line after
+
+}
+if (condition) {
+
+  // Unnecessary blank line before
+}
+```
+``if-else`` 块之间空一行是可以接受的:
+```c++
+if (condition) {
+  // Some lines of code too small to move to another function,
+  // followed by a blank line.
+
+} else {
+  // Another block of code
+}
+```
+
+
+9. 规则特例
+----------------
+
+前面说明的编程习惯基本都是强制性的. 但所有优秀的规则都允许例外, 这里就是探讨这些特例.
+
+###9.1. 现有不合规范的代码
+
+
+>tip	
+    对于现有不符合既定编程风格的代码可以网开一面.
+    
+当你修改使用其他风格的代码时, 为了与代码原有风格保持一致可以不使用本指南约定. 如果不放心可以与代码原作者或现在的负责人员商讨, 记住, *一致性* 包括原有的一致性.
+
+###9.2. Windows 代码
+
+>tip
+    Windows 程序员有自己的编程习惯, 主要源于 Windows 头文件和其它 Microsoft 代码. 我们希望任何人都可以顺利读懂你的代码, 所以针对所有平台的 C++ 编程只给出一个单独的指南.
+    
+如果你习惯使用 Windows 编码风格, 这儿有必要重申一下某些你可能会忘记的指南:
+
+- 不要使用匈牙利命名法 (比如把整型变量命名成 ``iNum``). 使用 Google 命名约定, 包括对源文件使用 ``.cc`` 扩展名.
+
+- Windows 定义了很多原生类型的同义词 , 如 ``DWORD``, ``HANDLE`` 等等. 在调用 Windows API 时这是完全可以接受甚至鼓励的. 但还是尽量使用原有的 C++ 类型, 例如, 使用 ``const TCHAR *`` 而不是 ``LPCTSTR``.
+
+- 使用 Microsoft Visual C++ 进行编译时, 将警告级别设置为 3 或更高, 并将所有 warnings 当作 errors 处理.
+
+- 不要使用 ``#pragma once``; 而应该使用 Google 的头文件保护规则. 头文件保护的路径应该相对于项目根目录 (yospaly 注: 如 ``#ifndef SRC_DIR_BAR_H_``, 参考 :ref:`#define 保护 <define_guard>` 一节).
+
+- 除非万不得已, 不要使用任何非标准的扩展, 如 ``#pragma`` 和 ``__declspec``. 允许使用 ``__declspec(dllimport)`` 和 ``__declspec(dllexport)``; 但你必须通过宏来使用, 比如 ``DLLIMPORT`` 和 ``DLLEXPORT``, 这样其他人在分享使用这些代码时很容易就去掉这些扩展.
+
+在 Windows 上, 只有很少的一些情况下, 我们可以偶尔违反规则:
+
+- 通常我们禁止使用多重继承, 但在使用 COM 和 ATL/WTL 类时可以使用多重继承. 为了实现 COM 或 ATL/WTL 类/接口, 你可能不得不使用多重实现继承.
+
+- 虽然代码中不应该使用异常, 但是在 ATL 和部分 STL（包括 Visual C++ 的 STL) 中异常被广泛使用. 使用 ATL 时, 应定义 ``_ATL_NO_EXCEPTIONS`` 以禁用异常. 你要研究一下是否能够禁用 STL 的异常, 如果无法禁用, 启用编译器异常也可以. (注意这只是为了编译 STL, 自己代码里仍然不要含异常处理.)
+
+- 通常为了利用头文件预编译, 每个每个源文件的开头都会包含一个名为 ``StdAfx.h`` 或 ``precompile.h`` 的文件. 为了使代码方便与其他项目共享, 避免显式包含此文件 (``precompile.cc``), 使用 ``/FI`` 编译器选项以自动包含.
+
+- 资源头文件通常命名为 ``resource.h``, 且只包含宏的, 不需要遵守本风格指南.
+    

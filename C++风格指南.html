@@ -1,0 +1,1719 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <title>C++风格指南.html</title>
+  <meta name="generator" content="Haroopad 0.12.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>div.oembedall-githubrepos{border:1px solid #DDD;border-radius:4px;list-style-type:none;margin:0 0 10px;padding:8px 10px 0;font:13.34px/1.4 helvetica,arial,freesans,clean,sans-serif;width:452px;background-color:#fff}div.oembedall-githubrepos .oembedall-body{background:-moz-linear-gradient(center top,#FAFAFA,#EFEFEF) repeat scroll 0 0 transparent;background:-webkit-gradient(linear,left top,left bottom,from(#FAFAFA),to(#EFEFEF));border-bottom-left-radius:4px;border-bottom-right-radius:4px;border-top:1px solid #EEE;margin-left:-10px;margin-top:8px;padding:5px 10px;width:100%}div.oembedall-githubrepos h3{font-size:14px;margin:0;padding-left:18px;white-space:nowrap}div.oembedall-githubrepos p.oembedall-description{color:#444;font-size:12px;margin:0 0 3px}div.oembedall-githubrepos p.oembedall-updated-at{color:#888;font-size:11px;margin:0}div.oembedall-githubrepos ul.oembedall-repo-stats{border:medium none;float:right;font-size:11px;font-weight:700;padding-left:15px;position:relative;z-index:5;margin:0}div.oembedall-githubrepos ul.oembedall-repo-stats li{border:medium none;color:#666;display:inline-block;list-style-type:none;margin:0!important}div.oembedall-githubrepos ul.oembedall-repo-stats li a{background-color:transparent;border:medium none;color:#666!important;background-position:5px -2px;background-repeat:no-repeat;border-left:1px solid #DDD;display:inline-block;height:21px;line-height:21px;padding:0 5px 0 23px}div.oembedall-githubrepos ul.oembedall-repo-stats li:first-child a{border-left:medium none;margin-right:-3px}div.oembedall-githubrepos ul.oembedall-repo-stats li a:hover{background:none no-repeat scroll 5px -27px #4183C4;color:#FFF!important;text-decoration:none}div.oembedall-githubrepos ul.oembedall-repo-stats li:first-child a:hover{border-bottom-left-radius:3px;border-top-left-radius:3px}ul.oembedall-repo-stats li:last-child a:hover{border-bottom-right-radius:3px;border-top-right-radius:3px}span.oembedall-closehide{background-color:#aaa;border-radius:2px;cursor:pointer;margin-right:3px}div.oembedall-container{margin-top:5px;text-align:left}.oembedall-ljuser{font-weight:700}.oembedall-ljuser img{vertical-align:bottom;border:0;padding-right:1px}.oembedall-stoqembed{border-bottom:1px dotted #999;float:left;overflow:hidden;width:730px;line-height:1;background:none repeat scroll 0 0 #FFF;color:#000;font-family:Arial,Liberation Sans,DejaVu Sans,sans-serif;font-size:80%;text-align:left;margin:0;padding:0}.oembedall-stoqembed a{color:#07C;text-decoration:none;margin:0;padding:0}.oembedall-stoqembed a:hover{text-decoration:underline}.oembedall-stoqembed a:visited{color:#4A6B82}.oembedall-stoqembed h3{font-family:Trebuchet MS,Liberation Sans,DejaVu Sans,sans-serif;font-size:130%;font-weight:700;margin:0;padding:0}.oembedall-stoqembed .oembedall-reputation-score{color:#444;font-size:120%;font-weight:700;margin-right:2px}.oembedall-stoqembed .oembedall-user-info{height:35px;width:185px}.oembedall-stoqembed .oembedall-user-info .oembedall-user-gravatar32{float:left;height:32px;width:32px}.oembedall-stoqembed .oembedall-user-info .oembedall-user-details{float:left;margin-left:5px;overflow:hidden;white-space:nowrap;width:145px}.oembedall-stoqembed .oembedall-question-hyperlink{font-weight:700}.oembedall-stoqembed .oembedall-stats{background:none repeat scroll 0 0 #EEE;margin:0 0 0 7px;padding:4px 7px 6px;width:58px}.oembedall-stoqembed .oembedall-statscontainer{float:left;margin-right:8px;width:86px}.oembedall-stoqembed .oembedall-votes{color:#555;padding:0 0 7px;text-align:center}.oembedall-stoqembed .oembedall-vote-count-post{font-size:240%;color:#808185;display:block;font-weight:700}.oembedall-stoqembed .oembedall-views{color:#999;padding-top:4px;text-align:center}.oembedall-stoqembed .oembedall-status{margin-top:-3px;padding:4px 0;text-align:center;background:none repeat scroll 0 0 #75845C;color:#FFF}.oembedall-stoqembed .oembedall-status strong{color:#FFF;display:block;font-size:140%}.oembedall-stoqembed .oembedall-summary{float:left;width:635px}.oembedall-stoqembed .oembedall-excerpt{line-height:1.2;margin:0;padding:0 0 5px}.oembedall-stoqembed .oembedall-tags{float:left;line-height:18px}.oembedall-stoqembed .oembedall-tags a:hover{text-decoration:none}.oembedall-stoqembed .oembedall-post-tag{background-color:#E0EAF1;border-bottom:1px solid #3E6D8E;border-right:1px solid #7F9FB6;color:#3E6D8E;font-size:90%;line-height:2.4;margin:2px 2px 2px 0;padding:3px 4px;text-decoration:none;white-space:nowrap}.oembedall-stoqembed .oembedall-post-tag:hover{background-color:#3E6D8E;border-bottom:1px solid #37607D;border-right:1px solid #37607D;color:#E0EAF1}.oembedall-stoqembed .oembedall-fr{float:right}.oembedall-stoqembed .oembedall-statsarrow{background-image:url(http://cdn.sstatic.net/stackoverflow/img/sprites.png?v=3);background-repeat:no-repeat;overflow:hidden;background-position:0 -435px;float:right;height:13px;margin-top:12px;width:7px}.oembedall-facebook1{border:#1A3C6C solid 1px;padding:0;font:13.34px/1.4 verdana;width:500px}.oembedall-facebook2{background-color:#627add}.oembedall-facebook2 a{color:#e8e8e8;text-decoration:none}.oembedall-facebookBody{background-color:#fff;vertical-align:top;padding:5px}.oembedall-facebookBody .contents{display:inline-block;width:100%}.oembedall-facebookBody div img{float:left;margin-right:5px}div.oembedall-lanyard{-webkit-box-shadow:none;-webkit-transition-delay:0s;-webkit-transition-duration:.4000000059604645s;-webkit-transition-property:width;-webkit-transition-timing-function:cubic-bezier(0.42,0,.58,1);background-attachment:scroll;background-clip:border-box;background-color:transparent;background-image:none;background-origin:padding-box;border-bottom-width:0;border-left-width:0;border-right-width:0;border-top-width:0;box-shadow:none;color:#112644;display:block;float:left;font-family:'Trebuchet MS',Trebuchet,sans-serif;font-size:16px;height:253px;line-height:19px;margin-bottom:0;margin-left:0;margin-right:0;margin-top:0;max-width:none;min-height:0;outline-color:#112644;outline-style:none;outline-width:0;overflow-x:visible;overflow-y:visible;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;position:relative;text-align:left;vertical-align:baseline;width:804px}div.oembedall-lanyard .tagline{font-size:1.5em}div.oembedall-lanyard .wrapper{overflow:hidden;clear:both}div.oembedall-lanyard .split{float:left;display:inline}div.oembedall-lanyard .prominent-place .flag:active,div.oembedall-lanyard .prominent-place .flag:focus,div.oembedall-lanyard .prominent-place .flag:hover,div.oembedall-lanyard .prominent-place .flag:link,div.oembedall-lanyard .prominent-place .flag:visited{float:left;display:block;width:48px;height:48px;position:relative;top:-5px;margin-right:10px}div.oembedall-lanyard .place-context{font-size:.889em}div.oembedall-lanyard .prominent-place .sub-place{display:block}div.oembedall-lanyard .prominent-place{font-size:1.125em;line-height:1.1em;font-weight:400}div.oembedall-lanyard .main-date{color:#8CB4E0;font-weight:700;line-height:1.1}div.oembedall-lanyard .first{width:48.57%;margin:0 0 0 2.857%}html{height:100%}body{margin:0!important;padding:5px 20px 26px!important;background-color:#fff;font-family:"Lucida Grande","Segoe UI","Apple SD Gothic Neo","Malgun Gothic","Lucida Sans Unicode",Helvetica,Arial,sans-serif;font-size:.9em;overflow-x:hidden;overflow-y:auto}br,h1,h2,h3,h4,h5,h6{clear:both}hr.page{background:transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;border:0 none;color:#ccc;height:3px;padding:0}hr.underscore{border:0 none!important;height:30px;padding:0;-webkit-margin-before:0;-webkit-margin-after:0}body >:first-child{margin-top:0!important}img.plugin{box-shadow:0 1px 3px rgba(0,0,0,.1);border-radius:3px}iframe{border:0}figure{-webkit-margin-before:0;-webkit-margin-after:0;-webkit-margin-start:0;-webkit-margin-end:0}kbd{border:1px solid #aaa;-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;-moz-box-shadow:1px 2px 2px #ddd;-webkit-box-shadow:1px 2px 2px #ddd;box-shadow:1px 2px 2px #ddd;background-color:#f9f9f9;background-image:-moz-linear-gradient(top,#eee,#f9f9f9,#eee);background-image:-o-linear-gradient(top,#eee,#f9f9f9,#eee);background-image:-webkit-linear-gradient(top,#eee,#f9f9f9,#eee);background-image:linear-gradient(top,#eee,#f9f9f9,#eee);padding:1px 3px;font-family:inherit;font-size:.85em}.oembeded .oembed_photo{display:inline-block}img[data-echo]{margin:25px 0;width:100px;height:100px;background:#fff url(../img/ajax.gif) no-repeat center center}.spinner{display:inline-block;width:10px;height:10px;margin-bottom:-.1em;border:2px solid rgba(0,0,0,.5);border-top-color:transparent;border-radius:100%;-webkit-animation:spin 1s infinite linear;animation:spin 1s infinite linear}.spinner:after{content:'';display:block;width:0;height:0;position:absolute;top:-6px;left:0;border:4px solid transparent;border-bottom-color:rgba(0,0,0,.5);-webkit-transform:rotate(45deg);transform:rotate(45deg)}@-webkit-keyframes spin{to{-webkit-transform:rotate(360deg)}}@keyframes spin{to{transform:rotate(360deg)}}p.toc{margin:0!important}p.toc ul{padding-left:10px}p.toc>ul{padding:10px;margin:0 10px;display:inline-block;border:1px solid #ededed;border-radius:5px}p.toc li,p.toc ul{list-style-type:none}p.toc li{width:100%;padding:0;overflow:hidden}p.toc li a::after{content:"."}p.toc li a:before{content:"• "}p.toc h5{text-transform:uppercase}p.toc .title{float:left;padding-right:3px}p.toc .number{margin:0;float:right;padding-left:3px;background:#fff;display:none}.markdown{padding:20px}.markdown a{text-decoration:none;vertical-align:baseline}.markdown a:hover{text-decoration:underline}.markdown h1{font-size:2.2em;font-weight:700;margin:1.5em 0 1em}.markdown h2{font-size:1.8em;font-weight:700;margin:1.275em 0 .85em}.markdown h3{font-size:1.6em;font-weight:700;margin:1.125em 0 .75em}.markdown h4{font-size:1.4em;font-weight:700;margin:.99em 0 .66em}.markdown h5{font-size:1.2em;font-weight:700;margin:.855em 0 .57em}.markdown h6{font-size:1em;font-weight:700;margin:.75em 0 .5em}.markdown h1+p,.markdown h1:first-child,.markdown h2+p,.markdown h2:first-child,.markdown h3+p,.markdown h3:first-child,.markdown h4+p,.markdown h4:first-child,.markdown h5+p,.markdown h5:first-child,.markdown h6+p,.markdown h6:first-child{margin-top:0}.markdown hr{border:1px solid #ccc}.markdown p{margin:1em 0;word-wrap:break-word}.markdown ol{list-style-type:decimal}.markdown li{display:list-item;line-height:1.4em}.markdown blockquote{margin:1em 20px}.markdown blockquote>:first-child{margin-top:0}.markdown blockquote>:last-child{margin-bottom:0}.markdown blockquote cite:before{content:'\2014 \00A0'}.markdown .code{border-radius:3px;word-break:break-all;word-wrap:break-word}.markdown pre{border-radius:3px;word-break:break-all;word-wrap:break-word;overflow:auto}.markdown pre code{display:block}.markdown pre>code{border:1px solid #ccc;white-space:pre;padding:.5em;margin:0}.markdown code{border-radius:3px;word-break:break-all;word-wrap:break-word;border:1px solid #ccc;padding:0 5px;margin:0 2px}.markdown img{max-width:100%}.markdown table{padding:0;border-collapse:collapse;border-spacing:0}.markdown table tr td,.markdown table tr th{border:1px solid #ccc;margin:0;padding:6px 13px}.markdown table tr th{font-weight:700}.markdown table tr th>:first-child{margin-top:0}.markdown table tr th>:last-child{margin-bottom:0}.markdown table tr td>:first-child{margin-top:0}.markdown table tr td>:last-child{margin-bottom:0}.markdown em.underline{font-style:normal;text-decoration:underline}.markdown strong.highlight{color:#000;padding:0 5px;background-color:#fdffb6;-webkit-box-shadow:#fdffb6 0 0 5px;-moz-box-shadow:#fdffb6 0 0 5px;box-shadow:#fdffb6 0 0 5px}@import url(http://fonts.googleapis.com/css?family=Tauri);import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700);.haroopad{padding:20px;color:#222;font-size:15px;font-family:'Roboto Condensed',Tauri,"Lucida Grande","Lucida Sans Unicode","Lucida Sans",AppleSDGothicNeo-Medium,'Segoe UI','Malgun Gothic',Verdana,Tahoma,sans-serif;background:#fff;-webkit-font-smoothing:antialiased}.haroopad a{color:#3269a0}.haroopad a:hover{color:#4183c4}.haroopad h2{border-bottom:1px solid #e6e6e6;line-height:1.7em}.haroopad h6{color:#777}.haroopad hr{border:1px solid #e6e6e6}.haroopad blockquote>code,.haroopad h1>code,.haroopad h2>code,.haroopad h3>code,.haroopad h4>code,.haroopad h5>code,.haroopad h6>code,.haroopad li>code,.haroopad p>code,.haroopad td>code{color:#000;background-color:#feecdd;border:1px solid #efdfd0}.haroopad pre>code{font-size:1em;font-family:Consolas,Inconsolata,Courier,monospace;letter-spacing:-1px;font-weight:700}.haroopad blockquote{border-left:4px solid #e6e6e6;padding:0 15px;color:#777}.haroopad table{background-color:#fafafa}.haroopad table tr td,.haroopad table tr th{border:1px solid #e6e6e6}.haroopad table tr:nth-child(2n){background-color:#f2f2f2}.hljs{display:block;padding:.5em;background:#fdf6e3;color:#657b83}.diff .hljs-header,.hljs-comment,.hljs-doctype,.hljs-javadoc,.hljs-pi,.hljs-template_comment,.lisp .hljs-string{color:#93a1a1}.css .hljs-tag,.hljs-addition,.hljs-keyword,.hljs-request,.hljs-status,.hljs-winutils,.method,.nginx .hljs-title{color:#859900}.hljs-command,.hljs-hexcolor,.hljs-link_url,.hljs-number,.hljs-phpdoc,.hljs-regexp,.hljs-rules .hljs-value,.hljs-string,.hljs-tag .hljs-value,.tex .hljs-formula{color:#2aa198}.css .hljs-function,.hljs-built_in,.hljs-chunk,.hljs-decorator,.hljs-id,.hljs-identifier,.hljs-localvars,.hljs-title,.vhdl .hljs-literal{color:#268bd2}.haskell .hljs-type,.hljs-attribute,.hljs-class .hljs-title,.hljs-constant,.hljs-link_reference,.hljs-parent,.hljs-variable,.lisp .hljs-body,.smalltalk .hljs-number{color:#b58900}.clojure .hljs-title,.css .hljs-pseudo,.diff .hljs-change,.hljs-attr_selector,.hljs-cdata,.hljs-header,.hljs-pragma,.hljs-preprocessor,.hljs-preprocessor .hljs-keyword,.hljs-shebang,.hljs-special,.hljs-subst,.hljs-symbol,.hljs-symbol .hljs-string{color:#cb4b16}.hljs-deletion,.hljs-important{color:#dc322f}.hljs-link_label{color:#6c71c4}.tex .hljs-formula{background:#eee8d5}footer{position:fixed;font-size:.8em;text-align:right;bottom:0;margin-left:-25px;height:20px;width:100%}</style>
+</head>
+<body class="markdown haroopad">
+
+  <h1 id="c-"><a name="c-" href="#c-"></a>C++编程风格指南</h1><h2 id="1-"><a name="1-" href="#1-"></a>1. 头文件</h2><p>通常每一个 .cc 文件都有一个对应的 .h 文件. 也有一些常见例外, 如单元测试代码和只包含 main() 函数的 .cc 文件.</p><p>正确使用头文件可令代码在可读性、文件大小和性能上大为改观.</p><p>下面的规则将引导你规避使用头文件时的各种陷阱.</p><h3 id="1-1-define-"><a name="1-1-define-" href="#1-1-define-"></a>1.1. #define 保护</h3><blockquote>
+<p>Tip
+所有头文件都应该使用 #define 防止头文件被多重包含, 命名格式当是: <project><em><path></path></em><file><em>H</em></file></project></p>
+</blockquote><p>为保证唯一性, 头文件的命名应该依据所在项目源代码树的全路径. 例如, 项目 foo 中的头文件 foo/src/bar/baz.h 可按如下方式保护:</p><pre><code class="lang-[c++] hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-[c++]&quot;&gt;#ifndef FOO_BAR_BAZ_H_
+#define FOO_BAR_BAZ_H_
+…
+#endif // FOO_BAR_BAZ_H_
+&lt;/code&gt;&lt;/pre&gt;">#ifndef FOO_BAR_BAZ_H_
+#define FOO_BAR_BAZ_H_
+…
+#endif // FOO_BAR_BAZ_H_
+</code></pre><h3 id="1-2-"><a name="1-2-" href="#1-2-"></a>1.2. 头文件依赖</h3><blockquote>
+<p><strong>Tip</strong><br>能用前置声明的地方尽量不使用 #include.</p>
+</blockquote><p>当一个头文件被包含的同时也引入了新的依赖, 一旦该头文件被修改, 代码就会被重新编译. 如果这个头文件又包含了其他头文件, 这些头文件的任何改变都将导致所有包含了该头文件的代码被重新编译. 因此, 我们倾向于减少包含头文件, 尤其是在头文件中包含头文件.</p><p>使用前置声明可以显著减少需要包含的头文件数量. 举例说明: 如果头文件中用到类 File, 但不需要访问 File 类的声明, 头文件中只需前置声明 class File; 而无须 #include "file/base/file.h".</p><p>不允许访问类的定义的前提下, 我们在一个头文件中能对类 Foo 做哪些操作?</p><p>我们可以将数据成员类型声明为 Foo * 或 Foo &amp;.
+我们可以将函数参数 / 返回值的类型声明为 Foo (但不能定义实现).
+我们可以将静态数据成员的类型声明为 Foo, 因为静态数据成员的定义在类定义之外.
+反之, 如果你的类是 Foo 的子类, 或者含有类型为 Foo 的非静态数据成员, 则必须包含 Foo 所在的头文件.</p><p>有时, 使用指针成员 (如果是 scoped_ptr 更好) 替代对象成员的确是明智之选. 然而, 这会降低代码可读性及执行效率, 因此如果仅仅为了少包含头文件，还是不要这么做的好.</p><p>当然 .cc 文件无论如何都需要所使用类的定义部分, 自然也就会包含若干头文件.</p><h3 id="1-3-"><a name="1-3-" href="#1-3-"></a>1.3. 函数参数的顺序</h3><hr class="section"><blockquote>
+<p><strong>Tip</strong><br>定义函数时, 参数顺序依次为: 输入参数, 然后是输出参数.</p>
+</blockquote><p>C/C++ 函数参数分为输入参数, 输出参数, 和输入/输出参数三种. 输入参数一般传值或传 const 引用, 输出参数或输入/输出参数则是非-const 指针. 对参数排序时, 将只输入的参数放在所有输出参数之前. 尤其是不要仅仅因为是新加的参数, 就把它放在最后; 即使是新加的只输入参数也要放在输出参数之前.</p><p>这条规则并不需要严格遵守. 输入/输出两用参数 (通常是类/结构体变量) 把事情变得复杂, 为保持和相关函数的一致性, 你有时不得不有所变通.</p><h3 id="1-4-include-"><a name="1-4-include-" href="#1-4-include-"></a>1.4. #include 的路径及顺序</h3><hr class="section"><blockquote>
+<p>Tip
+使用标准的头文件包含顺序可增强可读性, 避免隐藏依赖: C 库, C++ 库, 其他库的 .h, 本项目内的 .h.</p>
+</blockquote><p>项目内头文件应按照项目源代码目录树结构排列, 避免使用 UNIX 特殊的快捷目录 . (当前目录) 或 .. (上级目录). 例如, project/src/base/logging.h 应该按如下方式包含:</p><p><code>#include “base/logging.h”</code></p><p>又如, dir/foo.cc 的主要作用是实现或测试 dir2/foo2.h 的功能, foo.cc 中包含头文件的次序如下:</p><ol>
+<li>dir2/foo2.h (优先位置, 详情如下)</li>
+<li>C 系统文件</li>
+<li>C++ 系统文件</li>
+<li>其他库的 .h 文件</li>
+<li>本项目内 .h 文件</li>
+</ol><p>这种排序方式可有效减少隐藏依赖. 我们希望每一个头文件都是可被独立编译的 (yospaly 译注: 即该头文件本身已包含所有必要的显式依赖), 最简单的方法是将其作为第一个 .h 文件 #included 进对应的 .cc.</p><p>dir/foo.cc 和 dir2/foo2.h 通常位于同一目录下 (如 base/basictypes_unittest.cc 和 base/basictypes.h), 但也可以放在不同目录下.</p><p>按字母顺序对头文件包含进行二次排序是不错的主意 (yospaly 译注: 之前已经按头文件类别排过序了).</p><p>举例来说, project/src/foo/internal/fooserver.cc 的包含次序如下:</p><pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;#include &quot;foo/public/fooserver.h&quot; // 优先位置
+#include &amp;lt;sys/types.h&amp;gt;
+#include &amp;lt;unistd.h&amp;gt;
+#include &amp;lt;hash_map&amp;gt;
+#include &amp;lt;vector&amp;gt;
+#include &quot;base/basictypes.h&quot;
+#include &quot;base/commandlineflags.h&quot;
+#include &quot;foo/public/bar.h&quot;
+&lt;/code&gt;&lt;/pre&gt;">#include "foo/public/fooserver.h" // 优先位置
+#include &lt;sys/types.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;hash_map&gt;
+#include &lt;vector&gt;
+#include "base/basictypes.h"
+#include "base/commandlineflags.h"
+#include "foo/public/bar.h"
+</code></pre><h3 id="1-5-"><a name="1-5-" href="#1-5-"></a>1.5. 内联函数</h3><hr class="section"><blockquote>
+<p><strong>Tip</strong><br>只有当函数只有 10 行甚至更少时才将其定义为内联函数.</p>
+</blockquote><ul>
+<li><p>定义:<br>当函数被声明为内联函数之后, 编译器会将其内联展开, 而不是按通常的函数调用机制进行调用.</p>
+</li>
+<li><p>优点:<br>当函数体比较小的时候, 内联该函数可以令目标代码更加高效. 对于存取函数以及其它函数体比较短, 性能关键的函数, 鼓励使用内联.</p>
+</li>
+<li><p>缺点:<br>滥用内联将导致程序变慢. 内联可能使目标代码量或增或减, 这取决于内联函数的大小. 内联非常短小的存取函数通常会减少代码大小, 但内联一个相当大的函数将戏剧性的增加代码大小. 现代处理器由于更好的利用了指令缓存, 小巧的代码往往执行更快。</p>
+</li>
+<li><p>结论:<br>  一个较为合理的经验准则是, 不要内联超过 10 行的函数. 谨慎对待析构函数, 析构函数往往比其表面看起来要更长, 因为有隐含的成员和基类析构函数被调用!</p>
+<p>  另一个实用的经验准则: 内联那些包含循环或 switch 语句的函数常常是得不偿失 (除非在大多数情况下, 这些循环或 switch 语句从不被执行).</p>
+<p>  有些函数即使声明为内联的也不一定会被编译器内联, 这点很重要; 比如虚函数和递归函数就不会被正常内联. 通常, 递归函数不应该声明成内联函数.（注: 递归调用堆栈的展开并不像循环那么简单, 比如递归层数在编译时可能是未知的, 大多数编译器都不支持内联递归函数). 虚函数内联的主要原因则是想把它的函数体放在类定义内, 为了图个方便, 抑或是当作文档描述其行为, 比如精短的存取函数.</p>
+</li>
+</ul><h2 id="2-"><a name="2-" href="#2-"></a>2. 作用域</h2><h3 id="2-1-"><a name="2-1-" href="#2-1-"></a>2.1. 名字空间</h3><hr class="section"><blockquote>
+<p>Tip<br>鼓励在 .cc 文件内使用匿名名字空间. 使用具名的名字空间时, 其名称可基于项目名或相对路径. 不要使用 using 关键字.</p>
+</blockquote><ul>
+<li><p><em>定义:</em><br>名字空间将全局作用域细分为独立的, 具名的作用域, 可有效防止全局作用域的命名冲突.</p>
+</li>
+<li><p><em>优点:</em><br>虽然类已经提供了（可嵌套的）命名轴线 (YuleFox 注: 将命名分割在不同类的作用域内), 名字空间在这基础上又封装了一层.</p>
+<p>  举例来说, 两个不同项目的全局作用域都有一个类 Foo, 这样在编译或运行时造成冲突. 如果每个项目将代码置于不同名字空间中, project1::Foo 和 project2::Foo 作为不同符号自然不会冲突.</p>
+</li>
+<li><p><em>缺点:</em><br>名字空间具有迷惑性, 因为它们和类一样提供了额外的 (可嵌套的) 命名轴线.</p>
+<p>  在头文件中使用匿名空间导致违背 C++ 的唯一定义原则 (One Definition Rule (ODR)).</p>
+</li>
+<li><p><em>结论:</em>    </p>
+<p>  根据下文将要提到的策略合理使用命名空间.</p>
+</li>
+</ul><h4 id="2-1-1-"><a name="2-1-1-" href="#2-1-1-"></a>2.1.1. 匿名名字空间</h4><ul>
+<li><p>在 .cc 文件中, 允许甚至鼓励使用匿名名字空间, 以避免运行时的命名冲突:</p>
+<pre><code class="lang-[c++] hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-[c++]&quot;&gt;  namespace {                             // .cc 文件中
+
+  // 名字空间的内容无需缩进
+  enum { kUNUSED, kEOF, kERROR };         // 经常使用的符号
+  bool AtEof() { return pos_ == kEOF; }   // 使用本名字空间内的符号 EOF
+
+  } // namespace
+&lt;/code&gt;&lt;/pre&gt;">  namespace {                             // .cc 文件中
+
+  // 名字空间的内容无需缩进
+  enum { kUNUSED, kEOF, kERROR };         // 经常使用的符号
+  bool AtEof() { return pos_ == kEOF; }   // 使用本名字空间内的符号 EOF
+
+  } // namespace
+</code></pre>
+<p>  然而, 与特定类关联的文件作用域声明在该类中被声明为类型, 静态数据成员或静态成员函数, 而不是匿名名字空间的成员. 如上例所示, 匿名空间结束时用注释 // namespace 标识.</p>
+</li>
+<li><p>不要在 .h 文件中使用匿名名字空间.</p>
+</li>
+</ul><h4 id="2-1-2-"><a name="2-1-2-" href="#2-1-2-"></a>2.1.2. 具名的名字空间</h4><p>具名的名字空间使用方式如下:</p><ul>
+<li><p>用名字空间把文件包含, gflags 的声明/定义, 以及类的前置声明以外的整个源文件封装起来, 以区别于其它名字空间:</p>
+<pre><code class="lang-[c++] hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-[c++]&quot;&gt;  // .h 文件
+  namespace mynamespace {
+
+  // 所有声明都置于命名空间中
+  // 注意不要使用缩进
+  class MyClass {
+      public:
+      …
+      void Foo();
+  };
+
+  } // namespace mynamespace
+&lt;/code&gt;&lt;/pre&gt;">  // .h 文件
+  namespace mynamespace {
+
+  // 所有声明都置于命名空间中
+  // 注意不要使用缩进
+  class MyClass {
+      public:
+      …
+      void Foo();
+  };
+
+  } // namespace mynamespace
+</code></pre>
+<pre><code class="lang-[c++] hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-[c++]&quot;&gt;  // .cc 文件
+  namespace mynamespace {
+
+  // 函数定义都置于命名空间中
+  void MyClass::Foo() {
+      …
+  }
+
+  } // namespace mynamespace
+&lt;/code&gt;&lt;/pre&gt;">  // .cc 文件
+  namespace mynamespace {
+
+  // 函数定义都置于命名空间中
+  void MyClass::Foo() {
+      …
+  }
+
+  } // namespace mynamespace
+</code></pre>
+<p>  通常的 .cc 文件包含更多, 更复杂的细节, 比如引用其他名字空间的类等.</p>
+<pre><code class="lang-[c++] hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-[c++]&quot;&gt;  #include “a.h”
+
+  DEFINE_bool(someflag, false, “dummy flag”);
+
+  class C;                    // 全局名字空间中类 C 的前置声明
+  namespace a { class A; }    // a::A 的前置声明
+
+  namespace b {
+
+  …code for b…                // b 中的代码
+
+  } // namespace b
+&lt;/code&gt;&lt;/pre&gt;">  #include “a.h”
+
+  DEFINE_bool(someflag, false, “dummy flag”);
+
+  class C;                    // 全局名字空间中类 C 的前置声明
+  namespace a { class A; }    // a::A 的前置声明
+
+  namespace b {
+
+  …code for b…                // b 中的代码
+
+  } // namespace b
+</code></pre>
+</li>
+<li><p>不要在名字空间 std 内声明任何东西, 包括标准库的类前置声明. 在 std 名字空间声明实体会导致不确定的问题, 比如不可移植. 声明标准库下的实体, 需要包含对应的头文件.</p>
+</li>
+<li><p>最好不要使用 <code>using</code> 关键字, 以保证名字空间下的所有名称都可以正常使用.</p>
+<pre><code class="lang-[c++] hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-[c++]&quot;&gt;  // 禁止 —— 污染名字空间
+  using namespace foo;
+&lt;/code&gt;&lt;/pre&gt;">  // 禁止 —— 污染名字空间
+  using namespace foo;
+</code></pre>
+</li>
+<li><p>在 .cc 文件, .h 文件的函数, 方法或类中, 可以使用 <code>using</code> 关键字.</p>
+<pre><code class="lang-[c++] hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-[c++]&quot;&gt;  // 允许: .cc 文件中
+  // .h 文件的话, 必须在函数, 方法或类的内部使用
+  using ::foo::bar;
+&lt;/code&gt;&lt;/pre&gt;">  // 允许: .cc 文件中
+  // .h 文件的话, 必须在函数, 方法或类的内部使用
+  using ::foo::bar;
+</code></pre>
+</li>
+<li><p>在 .cc 文件, .h 文件的函数, 方法或类中, 允许使用名字空间别名.</p>
+<pre><code class="lang-[c++] hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-[c++]&quot;&gt;  // 允许: .cc 文件中
+  // .h 文件的话, 必须在函数, 方法或类的内部使用
+
+  namespace fbz = ::foo::bar::baz;
+&lt;/code&gt;&lt;/pre&gt;">  // 允许: .cc 文件中
+  // .h 文件的话, 必须在函数, 方法或类的内部使用
+
+  namespace fbz = ::foo::bar::baz;
+</code></pre>
+</li>
+</ul><h3 id="2-2-"><a name="2-2-" href="#2-2-"></a>2.2. 嵌套类</h3><hr class="section"><blockquote>
+<p>Tip<br>当公有嵌套类作为接口的一部分时, 虽然可以直接将他们保持在全局作用域中, 但将嵌套类的声明置于名字空间内是更好的选择.</p>
+</blockquote><ul>
+<li><p>定义: 在一个类内部定义另一个类; 嵌套类也被称为 成员类 (member class).</p>
+<pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;  class Foo {
+
+  private:
+      // Bar是嵌套在Foo中的成员类
+      class Bar {
+          …
+      };
+
+  };
+&lt;/code&gt;&lt;/pre&gt;">  class Foo {
+
+  private:
+      // Bar是嵌套在Foo中的成员类
+      class Bar {
+          …
+      };
+
+  };
+</code></pre>
+</li>
+<li><p>优点:    </p>
+<p>  当嵌套 (或成员) 类只被外围类使用时非常有用; 把它作为外围类作用域内的成员, 而不是去污染外部作用域的同名类. 嵌套类可以在外围类中做前置声明, 然后在 .cc 文件中定义, 这样避免在外围类的声明中定义嵌套类, 因为嵌套类的定义通常只与实现相关.</p>
+</li>
+<li><p>缺点:<br>嵌套类只能在外围类的内部做前置声明. 因此, 任何使用了 Foo::Bar* 指针的头文件不得不包含类 Foo 的整个声明.</p>
+</li>
+<li><p>结论:<br>不要将嵌套类定义成公有, 除非它们是接口的一部分, 比如, 嵌套类含有某些方法的一组选项.</p>
+</li>
+</ul><h3 id="2-3-"><a name="2-3-" href="#2-3-"></a>2.3. 非成员函数、静态成员函数和全局函数</h3><blockquote>
+<p>Tip<br>使用静态成员函数或名字空间内的非成员函数, 尽量不要用裸的全局函数.</p>
+</blockquote><ul>
+<li><p>优点:<br>某些情况下, 非成员函数和静态成员函数是非常有用的, 将非成员函数放在名字空间内可避免污染全局作用域.</p>
+</li>
+<li><p>缺点:<br>将非成员函数和静态成员函数作为新类的成员或许更有意义, 当它们需要访问外部资源或具有重要的依赖关系时更是如此.</p>
+</li>
+<li><p>结论:    </p>
+<p>  有时, 把函数的定义同类的实例脱钩是有益的, 甚至是必要的. 这样的函数可以被定义成静态成员, 或是非成员函数. 非成员函数不应依赖于外部变量, 应尽量置于某个名字空间内. 相比单纯为了封装若干不共享任何静态数据的静态成员函数而创建类, 不如使用命名空间.</p>
+<p>  定义在同一编译单元的函数, 被其他编译单元直接调用可能会引入不必要的耦合和链接时依赖; 静态成员函数对此尤其敏感. 可以考虑提取到新类中, 或者将函数置于独立库的名字空间内.</p>
+<p>  如果你必须定义非成员函数, 又只是在 .cc 文件中使用它, 可使用匿名名字空间或 static 链接关键字 (如 <code>static int Foo() {...}</code>) 限定其作用域.</p>
+</li>
+</ul><h3 id="2-4-"><a name="2-4-" href="#2-4-"></a>2.4. 局部变量</h3><hr class="section"><blockquote>
+<p>Tip<br>将函数变量尽可能置于最小作用域内, 并在变量声明时进行初始化.</p>
+</blockquote><p>C++ 允许在函数的任何位置声明变量. 我们提倡在尽可能小的作用域中声明变量, 离第一次使用越近越好. 这使得代码浏览者更容易定位变量声明的位置, 了解变量的类型和初始值. 特别是，应使用初始化的方式替代声明再赋值, 比如:</p><pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;int i;
+i = f(); // 坏——初始化和声明分离
+int j = g(); // 好——初始化时声明
+&lt;/code&gt;&lt;/pre&gt;">int i;
+i = f(); // 坏——初始化和声明分离
+int j = g(); // 好——初始化时声明
+</code></pre><p>注意, GCC 可正确实现了 for (int i = 0; i &lt; 10; ++i) (i 的作用域仅限 for 循环内), 所以其他 for 循环中可以重新使用 i. 在 if 和 while 等语句中的作用域声明也是正确的, 如:</p><pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;while (const char* p = strchr(str, ‘/’)) str = p + 1;
+&lt;/code&gt;&lt;/pre&gt;">while (const char* p = strchr(str, ‘/’)) str = p + 1;
+</code></pre><blockquote>
+<blockquote>
+<p><strong class="highlight"><strong>Warning</strong></strong><br>如果变量是一个对象, 每次进入作用域都要调用其构造函数, 每次退出作用域都要调用其析构函数.</p>
+</blockquote>
+</blockquote><pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;// 低效的实现
+for (int i = 0; i &amp;lt; 1000000; ++i) {
+    Foo f;                  // 构造函数和析构函数分别调用 1000000 次!
+    f.DoSomething(i);
+}
+&lt;/code&gt;&lt;/pre&gt;">// 低效的实现
+for (int i = 0; i &lt; 1000000; ++i) {
+    Foo f;                  // 构造函数和析构函数分别调用 1000000 次!
+    f.DoSomething(i);
+}
+</code></pre><p>在循环作用域外面声明这类变量要高效的多:</p><pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;Foo f;                      // 构造函数和析构函数只调用 1 次
+for (int i = 0; i &amp;lt; 1000000; ++i) {
+    f.DoSomething(i);
+}
+&lt;/code&gt;&lt;/pre&gt;">Foo f;                      // 构造函数和析构函数只调用 1 次
+for (int i = 0; i &lt; 1000000; ++i) {
+    f.DoSomething(i);
+}
+</code></pre><h3 id="2-5-"><a name="2-5-" href="#2-5-"></a>2.5. 静态和全局变量</h3><hr class="section"><blockquote>
+<p>Tip<br>禁止使用 class 类型的静态或全局变量: 它们会导致很难发现的 bug 和不确定的构造和析构函数调用顺序.</p>
+</blockquote><p>静态生存周期的对象, 包括全局变量, 静态变量, 静态类成员变量, 以及函数静态变量, 都必须是原生数据类型 (POD : Plain Old Data): 只能是 int, char, float, 和 void, 以及 POD 类型的数组/结构体/指针. 永远不要使用函数返回值初始化静态变量; 不要在多线程代码中使用非 const 的静态变量.</p><p>不幸的是, 静态变量的构造函数, 析构函数以及初始化操作的调用顺序在 C++ 标准中未明确定义, 甚至每次编译构建都有可能会发生变化, 从而导致难以发现的 bug. 比如, 结束程序时, 某个静态变量已经被析构了, 但代码还在跑 – 其它线程很可能 – 试图访问该变量, 直接导致崩溃.</p><p>所以, 我们只允许 POD 类型的静态变量. 本条规则完全禁止 vector (使用 C 数组替代), string (使用 const char*), 及其它以任意方式包含或指向类实例的东东, 成为静态变量. 出于同样的理由, 我们不允许用函数返回值来初始化静态变量.</p><p>如果你确实需要一个 <code>class</code> 类型的静态或全局变量, 可以考虑在 <code>main()</code> 函数或 <code>pthread_once()</code> 内初始化一个你永远不会回收的指针.</p><h2 id="3-"><a name="3-" href="#3-"></a>3. 类</h2><p>类是 C++ 中代码的基本单元. 显然, 它们被广泛使用. 本节列举了在写一个类时的主要注意事项.</p><h3 id="3-1-"><a name="3-1-" href="#3-1-"></a>3.1. 构造函数的职责</h3><hr class="section"><blockquote>
+<p>Tip<br>构造函数中只进行那些没什么意义的 (trivial, YuleFox 注: 简单初始化对于程序执行没有实际的逻辑意义, 因为成员变量 “有意义” 的值大多不在构造函数中确定) 初始化, 可能的话, 使用 Init() 方法集中初始化有意义的 (non-trivial) 数据.</p>
+</blockquote><ul>
+<li><p>定义:<br>在构造函数体中进行初始化操作.</p>
+</li>
+<li><p>优点:<br>排版方便, 无需担心类是否已经初始化.</p>
+</li>
+<li><p>缺点:<br>在构造函数中执行操作引起的问题有:</p>
+<ul>
+<li>构造函数中很难上报错误, 不能使用异常.</li>
+<li>操作失败会造成对象初始化失败，进入不确定状态.</li>
+<li>如果在构造函数内调用了自身的虚函数, 这类调用是不会重定向到子类的虚函数实现. 即使当前没有子类化实现, 将来仍是隐患.</li>
+<li>如果有人创建该类型的全局变量 (虽然违背了上节提到的规则), 构造函数将先 main() 一步被调用, 有可能破坏构造函数中暗含的假设条件. 例如, gflags 尚未初始化.</li>
+</ul>
+</li>
+<li><p>结论:<br>如果对象需要进行有意义的 (non-trivial) 初始化, 考虑使用明确的 Init() 方法并 (或) 增加一个成员标记用于指示对象是否已经初始化成功.</p>
+</li>
+</ul><h3 id="3-2-"><a name="3-2-" href="#3-2-"></a>3.2. 默认构造函数</h3><hr class="section"><blockquote>
+<p>Tip<br>如果一个类定义了若干成员变量又没有其它构造函数, 必须定义一个默认构造函数. 否则编译器将自动生产一个很糟糕的默认构造函数.</p>
+</blockquote><ul>
+<li><p>定义:<br>new 一个不带参数的类对象时, 会调用这个类的默认构造函数. 用 new[] 创建数组时，默认构造函数则总是被调用.</p>
+</li>
+<li><p>优点:<br>默认将结构体初始化为 “无效” 值, 使调试更方便.</p>
+</li>
+<li><p>缺点:<br>对代码编写者来说, 这是多余的工作.</p>
+</li>
+<li><p>结论:<br>如果类中定义了成员变量, 而且没有提供其它构造函数, 你必须定义一个 (不带参数的) 默认构造函数. 把对象的内部状态初始化成一致/有效的值无疑是更合理的方式.</p>
+<p>  这么做的原因是: 如果你没有提供其它构造函数, 又没有定义默认构造函数, 编译器将为你自动生成一个. 编译器生成的构造函数并不会对对象进行合理的初始化.</p>
+<p>  如果你定义的类继承现有类, 而你又没有增加新的成员变量, 则不需要为新类定义默认构造函数.</p>
+</li>
+</ul><h3 id="3-3-"><a name="3-3-" href="#3-3-"></a>3.3. 显式构造函数</h3><hr class="section"><ul>
+<li><p>Tip<br>对单个参数的构造函数使用 C++ 关键字 explicit.</p>
+</li>
+<li><p>定义:<br>通常, 如果构造函数只有一个参数, 可看成是一种隐式转换. 打个比方, 如果你定义了 Foo::Foo(string name), 接着把一个字符串传给一个以 Foo 对象为参数的函数, 构造函数 Foo::Foo(string name) 将被调用, 并将该字符串转换为一个 Foo 的临时对象传给调用函数. 看上去很方便, 但如果你并不希望如此通过转换生成一个新对象的话, 麻烦也随之而来. 为避免构造函数被调用造成隐式转换, 可以将其声明为 explicit.</p>
+</li>
+<li><p>优点:<br>避免不合时宜的变换.</p>
+</li>
+<li><p>缺点:<br>无</p>
+</li>
+<li><p>结论:
+所有单参数构造函数都必须是显式的. 在类定义中, 将关键字 explicit 加到单参数构造函数前: explicit Foo(string name);</p>
+<p>  例外: 在极少数情况下, 拷贝构造函数可以不声明成 explicit. 作为其它类的透明包装器的类也是特例之一. 类似的例外情况应在注释中明确说明.</p>
+</li>
+</ul><h3 id="3-4-"><a name="3-4-" href="#3-4-"></a>3.4. 拷贝构造函数</h3><hr class="section"><blockquote>
+<p>Tip
+仅在代码中需要拷贝一个类对象的时候使用拷贝构造函数; 大部分情况下都不需要, 此时应使用 DISALLOW_COPY_AND_ASSIGN.</p>
+</blockquote><ul>
+<li><p>定义:<br>拷贝构造函数在复制一个对象到新建对象时被调用 (特别是对象传值时).</p>
+</li>
+<li><p>优点:<br>拷贝构造函数使得拷贝对象更加容易. STL 容器要求所有内容可拷贝, 可赋值.</p>
+</li>
+<li><p>缺点:<br>C++ 中的隐式对象拷贝是很多性能问题和 bug 的根源. 拷贝构造函数降低了代码可读性, 相比传引用, 跟踪传值的对象更加困难, 对象修改的地方变得难以捉摸.</p>
+</li>
+<li><p>结论:<br>  大部分类并不需要可拷贝, 也不需要一个拷贝构造函数或重载赋值运算符. 不幸的是, 如果你不主动声明它们, 编译器会为你自动生成, 而且是 public 的.</p>
+<p>  可以考虑在类的 private: 中添加拷贝构造函数和赋值操作的空实现, 只有声明, 没有定义. 由于这些空函数声明为 private, 当其他代码试图使用它们的时候, 编译器将报错. 方便起见, 我们可以使用 DISALLOW_COPY_AND_ASSIGN 宏:</p>
+<pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;  // 禁止使用拷贝构造函数和 operator= 赋值操作的宏
+  // 应该类的 private: 中使用
+
+  #define DISALLOW_COPY_AND_ASSIGN(TypeName) \
+              TypeName(const TypeName&amp;amp;); \
+              void operator=(const TypeName&amp;amp;)
+&lt;/code&gt;&lt;/pre&gt;">  // 禁止使用拷贝构造函数和 operator= 赋值操作的宏
+  // 应该类的 private: 中使用
+
+  #define DISALLOW_COPY_AND_ASSIGN(TypeName) \
+              TypeName(const TypeName&amp;); \
+              void operator=(const TypeName&amp;)
+</code></pre>
+<p>在 class foo: 中:</p>
+<pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;class Foo {
+  public:
+      Foo(int f);
+      ~Foo();
+
+  private:
+      DISALLOW_COPY_AND_ASSIGN(Foo);
+};
+&lt;/code&gt;&lt;/pre&gt;">class Foo {
+  public:
+      Foo(int f);
+      ~Foo();
+
+  private:
+      DISALLOW_COPY_AND_ASSIGN(Foo);
+};
+</code></pre>
+<p>如上所述, 绝大多数情况下都应使用 DISALLOW_COPY_AND_ASSIGN 宏. 如果类确实需要可拷贝, 应在该类的头文件中说明原由, 并合理的定义拷贝构造函数和赋值操作. 注意在 operator= 中检测自我赋值的情况 (yospaly 注: 即 operator= 接收的参数是该对象本身).</p>
+</li>
+</ul><p>为了能作为 STL 容器的值, 你可能有使类可拷贝的冲动. 在大多数类似的情况下, 真正该做的是把对象的 指针 放到 STL 容器中. 可以考虑使用 std::tr1::shared_ptr.</p><h3 id="3-5-vs-"><a name="3-5-vs-" href="#3-5-vs-"></a>3.5. 结构体 VS. 类</h3><blockquote>
+<p>Tip<br>仅当只有数据时使用 <code>struct</code>, 其它一概使用 <code>class</code>.</p>
+</blockquote><p>在 C++ 中 <code>struct</code> 和 <code>class</code> 关键字几乎含义一样. 我们为这两个关键字添加我们自己的语义理解, 以便为定义的数据类型选择合适的关键字.</p><p><code>struct</code> 用来定义包含数据的被动式对象, 也可以包含相关的常量, 但除了存取数据成员之外, 没有别的函数功能. 并且存取功能是通过直接访问位域 (field), 而非函数调用. 除了构造函数, 析构函数,<code>Initialize()</code>, <code>Reset()</code>, <code>Validate()</code> 外, 不能提供其它功能的函数.</p><p>如果需要更多的函数功能, class 更适合. 如果拿不准, 就用 class.</p><p>为了和 STL 保持一致, 对于仿函数 <strong>(functors)</strong> 和特性 <strong>(traits)</strong> 可以不用 class 而是使用 struct.</p><p>注意: 类和结构体的成员变量使用 <strong class="highlight">不同的命名规则</strong>.</p><h3 id="3-6-"><a name="3-6-" href="#3-6-"></a>3.6. 继承</h3><hr class="section"><blockquote>
+<p>Tip<br>使用组合 (composition, YuleFox 注: 这一点也是 GoF 在 &lt;<design patterns="">&gt; 里反复强调的) 常常比使用继承更合理. 如果使用继承的话, 定义为 public 继承.</design></p>
+</blockquote><ul>
+<li><p>定义:<br>当子类继承基类时, 子类包含了父基类所有数据及操作的定义. C++ 实践中, 继承主要用于两种场合: 实现继承 (implementation inheritance), 子类继承父类的实现代码; 接口继承 (interface inheritance), 子类仅继承父类的方法名称.</p>
+</li>
+<li><p>优点:<br>实现继承通过原封不动的复用基类代码减少了代码量. 由于继承是在编译时声明, 程序员和编译器都可以理解相应操作并发现错误. 从编程角度而言, 接口继承是用来强制类输出特定的 API. 在类没有实现 API 中某个必须的方法时, 编译器同样会发现并报告错误.</p>
+</li>
+<li><p>缺点:<br>对于实现继承, 由于子类的实现代码散布在父类和子类间之间, 要理解其实现变得更加困难. 子类不能重写父类的非虚函数, 当然也就不能修改其实现. 基类也可能定义了一些数据成员, 还要区分基类的实际布局.</p>
+</li>
+<li><p>结论:<br>所有继承必须是 public 的. 如果你想使用私有继承, 你应该替换成把基类的实例作为成员对象的方式.</p>
+<p>  不要过度使用实现继承. 组合常常更合适一些. 尽量做到只在 “是一个” (“is-a”, YuleFox 注: 其他 “has-a” 情况下请使用组合) 的情况下使用继承: 如果 Bar 的确 “是一种” Foo, Bar 才能继承 Foo.</p>
+<p>  必要的话, 析构函数声明为 virtual. 如果你的类有虚函数, 则析构函数也应该为虚函数. 注意 数据成员在任何情况下都必须是私有的.</p>
+<p>  当重载一个虚函数, 在衍生类中把它明确的声明为 virtual. 理论依据: 如果省略 virtual 关键字, 代码阅读者不得不检查所有父类, 以判断该函数是否是虚函数.</p>
+</li>
+</ul><h3 id="3-7-"><a name="3-7-" href="#3-7-"></a>3.7. 多重继承</h3><hr class="section"><blockquote>
+<p>Tip<br>真正需要用到多重实现继承的情况少之又少. 只在以下情况我们才允许多重继承: 最多只有一个基类是非抽象类; 其它基类都是以 Interface 为后缀的 纯接口类.</p>
+</blockquote><ul>
+<li>定义:<br>多重继承允许子类拥有多个基类. 要将作为 纯接口 的基类和具有 实现 的基类区别开来.</li>
+<li>优点:<br>相比单继承 (见 继承), 多重实现继承可以复用更多的代码.</li>
+<li>缺点:<br>真正需要用到多重 实现 继承的情况少之又少. 多重实现继承看上去是不错的解决方案, 但你通常也可以找到一个更明确, 更清晰的不同解决方案.</li>
+<li>结论:<br>只有当所有父类除第一个外都是 纯接口类 时, 才允许使用多重继承. 为确保它们是纯接口, 这些类必须以 Interface 为后缀.</li>
+</ul><h3 id="3-8-"><a name="3-8-" href="#3-8-"></a>3.8. 接口</h3><pre><code data-origin="&lt;pre&gt;&lt;code&gt;Tip
+接口是指满足特定条件的类, 这些类以 Interface 为后缀 (不强制).
+&lt;/code&gt;&lt;/pre&gt;">Tip
+接口是指满足特定条件的类, 这些类以 Interface 为后缀 (不强制).
+</code></pre><p>定义:</p><p>当一个类满足以下要求时, 称之为纯接口:</p><ul>
+<li>只有纯虚函数 (“=0”) 和静态函数 (除了下文提到的析构函数).</li>
+<li>没有非静态数据成员.</li>
+<li>没有定义任何构造函数. 如果有, 也不能带有参数, 并且必须为 protected.    </li>
+<li>如果它是一个子类, 也只能从满足上述条件并以 Interface 为后缀的类继承.</li>
+</ul><p>接口类不能被直接实例化, 因为它声明了纯虚函数. 为确保接口类的所有实现可被正确销毁, 必须为之声明虚析构函数 (作为上述第 1 条规则的特例, 析构函数不能是纯虚函数). 具体细节可参考 Stroustrup 的 <em>The C++ Programming Language, 3rd edition</em> 第 12.4 节.</p><p>优点:    </p><p>以 Interface 为后缀可以提醒其他人不要为该接口类增加函数实现或非静态数据成员. 这一点对于 多重继承 尤其重要. 另外, 对于 Java 程序员来说, 接口的概念已是深入人心.</p><p>缺点:</p><p>Interface 后缀增加了类名长度, 为阅读和理解带来不便. 同时，接口特性作为实现细节不应暴露给用户.</p><p>结论:    </p><p>只有在满足上述需要时, 类才以 Interface 结尾, 但反过来, 满足上述需要的类未必一定以 Interface 结尾.</p><h3 id="3-9-"><a name="3-9-" href="#3-9-"></a>3.9. 运算符重载</h3><hr class="section"><pre><code data-origin="&lt;pre&gt;&lt;code&gt;Tip    
+除少数特定环境外，不要重载运算符.
+&lt;/code&gt;&lt;/pre&gt;">Tip    
+除少数特定环境外，不要重载运算符.
+</code></pre><p>定义:    </p><p>一个类可以定义诸如 + 和 / 等运算符, 使其可以像内建类型一样直接操作.</p><p>优点:    </p><p>使代码看上去更加直观, 类表现的和内建类型 (如 int) 行为一致. 重载运算符使 Equals(), Add() 等函数名黯然失色. 为了使一些模板函数正确工作, 你可能必须定义操作符.</p><p> 缺点:    </p><p>虽然操作符重载令代码更加直观, 但也有一些不足:</p><ul>
+<li>混淆视听, 让你误以为一些耗时的操作和操作内建类型一样轻巧.</li>
+<li>更难定位重载运算符的调用点, 查找 <code>Equals()</code> 显然比对应的 <code>==</code> 调用点要容易的多.</li>
+<li>有的运算符可以对指针进行操作, 容易导致 bug. <code>Foo + 4</code>做的是一件事, 而<code>&amp;Foo + 4</code>可能做的是完全不同的另一件事. 对于二者, 编译器都不会报错, 使其很难调试;</li>
+</ul><p>重载还有令你吃惊的副作用. 比如, 重载了 <code>operator&amp;</code> 的类不能被前置声明.</p><p>结论:    </p><p>一般不要重载运算符. 尤其是赋值操作 (<code>operator=</code>) 比较诡异, 应避免重载. 如果需要的话, 可以定义类似 <code>Equals()</code>, <code>CopyFrom()</code> 等函数.</p><p>然而, 极少数情况下可能需要重载运算符以便与模板或 “标准” C++ 类互操作 (如 <code>operator&lt;&lt;(ostream&amp;, const T&amp;))</code>. 只有被证明是完全合理的才能重载, 但你还是要尽可能避免这样做. 尤其是不要仅仅为了在 STL 容器中用作键值就重载 <code>operator==</code>或<code>operator&lt;</code>; 相反, 你应该在声明容器的时候, 创建相等判断和大小比较的仿函数类型.</p><p>有些 STL 算法确实需要重载 <code>operator==</code> 时, 你可以这么做, 记得别忘了在文档中说明原因.</p><p>参考 拷贝构造函数 和 函数重载.</p><h3 id="3-10-"><a name="3-10-" href="#3-10-"></a>3.10. 存取控制</h3><p>Tip
+将 所有 数据成员声明为 <code>private</code>, 并根据需要提供相应的存取函数. 例如, 某个名为 <code>foo_</code> 的变量, 其取值函数是 <code>foo()</code>. 还可能需要一个赋值函数 <code>set_foo()</code>.
+一般在头文件中把存取函数定义成内联函数.</p><p>参考 继承 和 函数命名</p><h3 id="3-11-"><a name="3-11-" href="#3-11-"></a>3.11. 声明顺序</h3><pre><code data-origin="&lt;pre&gt;&lt;code&gt;Tip
+在类中使用特定的声明顺序: `public:` 在 `private:` 之前, 成员函数在数据成员 (变量) 前;
+&lt;/code&gt;&lt;/pre&gt;">Tip
+在类中使用特定的声明顺序: `public:` 在 `private:` 之前, 成员函数在数据成员 (变量) 前;
+</code></pre><p>类的访问控制区段的声明顺序依次为: <code>public:</code>, <code>protected:</code>, <code>private:</code>. 如果某区段没内容, 可以不声明.</p><p>每个区段内的声明通常按以下顺序:</p><ul>
+<li><code>typedefs</code> 和枚举</li>
+<li>常量</li>
+<li>构造函数</li>
+<li>析构函数</li>
+<li>成员函数, 含静态成员函数</li>
+<li>数据成员, 含静态数据成员</li>
+</ul><p>宏 <code>DISALLOW_COPY_AND_ASSIGN</code> 的调用放在 <code>private:</code> 区段的末尾. 它通常是类的最后部分. 参考 拷贝构造函数.</p><p><code>.cc</code> 文件中函数的定义应尽可能和声明顺序一致.</p><p>不要在类定义中内联大型函数. 通常, 只有那些没有特别意义或性能要求高, 并且是比较短小的函数才能被定义为内联函数. 更多细节参考 内联函数.</p><h3 id="3-12-"><a name="3-12-" href="#3-12-"></a>3.12. 编写简短函数</h3><pre><code data-origin="&lt;pre&gt;&lt;code&gt;Tip
+倾向编写简短, 凝练的函数.
+&lt;/code&gt;&lt;/pre&gt;">Tip
+倾向编写简短, 凝练的函数.
+</code></pre><p>我们承认长函数有时是合理的, 因此并不硬性限制函数的长度. 如果函数超过 40 行, 可以思索一下能不能在不影响程序结构的前提下对其进行分割.</p><p>即使一个长函数现在工作的非常好, 一旦有人对其修改, 有可能出现新的问题. 甚至导致难以发现的 bug. 使函数尽量简短, 便于他人阅读和修改代码.</p><p>在处理代码时, 你可能会发现复杂的长函数. 不要害怕修改现有代码: 如果证实这些代码使用 / 调试困难, 或者你需要使用其中的一小段代码, 考虑将其分割为更加简短并易于管理的若干函数.</p><h2 id="4-google-"><a name="4-google-" href="#4-google-"></a>4. 来自 Google 的奇技</h2><p>Google 用了很多自己实现的技巧 / 工具使 C<em class="underline"> 代码更加健壮, 他们使用 C</em> 的方式可能和你在其它地方见到的有所不同.</p><h3 id="4-1-"><a name="4-1-" href="#4-1-"></a>4.1. 智能指针</h3><pre><code data-origin="&lt;pre&gt;&lt;code&gt;Tip
+如果确实需要使用智能指针的话, `scoped_ptr` 完全可以胜任. 你应该只在非常特定的情况下使用 `std::tr1::shared_ptr`, 例如 **STL** 容器中的对象. 任何情况下都不要使用 `auto_ptr`.
+&lt;/code&gt;&lt;/pre&gt;">Tip
+如果确实需要使用智能指针的话, `scoped_ptr` 完全可以胜任. 你应该只在非常特定的情况下使用 `std::tr1::shared_ptr`, 例如 **STL** 容器中的对象. 任何情况下都不要使用 `auto_ptr`.
+</code></pre><p>“智能” 指针看上去是指针, 其实是附加了语义的对象. 以 <code>scoped_ptr</code> 为例, <code>scoped_ptr</code> 被销毁时, 它会删除所指向的对象. <code>shared_ptr</code> 也是如此, 并且 <code>shared_ptr</code> 实现了引用计数, 所以最后一个 <code>shared_ptr</code> 对象析构时, 如果检测到引用次数为 0，就会销毁所指向的对象.</p><p>一般来说，我们倾向于设计对象隶属明确的代码, 最明确的对象隶属是根本不使用指针, 直接将对象作为一个作用域或局部变量使用. 另一种极端做法是, 引用计数指针不属于任何对象. 这种方法的问题是容易导致循环引用, 或者导致某个对象无法删除的诡异状态, 而且在每一次拷贝或赋值时连原子操作都会很慢.</p><p>虽然不推荐使用引用计数指针, 但有些时候它们的确是最简单有效的解决方案.</p><h3 id="4-2-cpplint"><a name="4-2-cpplint" href="#4-2-cpplint"></a>4.2. cpplint</h3><pre><code data-origin="&lt;pre&gt;&lt;code&gt;Tip
+使用 `cpplint.py` 检查风格错误.
+&lt;/code&gt;&lt;/pre&gt;">Tip
+使用 `cpplint.py` 检查风格错误.
+</code></pre><p><code>cpplint.py</code> 是一个用来分析源文件, 能检查出多种风格错误的工具. 它不并完美, 甚至还会漏报和误报, 但它仍然是一个非常有用的工具. 用行注释 // NOLINT 可以忽略误报.</p><p>下载 <a href="http://google-styleguide.googlecode.com/svn/trunk/cpplint/cpplint.py">cpplint.py</a>.</p><h2 id="5-c-"><a name="5-c-" href="#5-c-"></a>5. 其他 C++ 特性</h2><h3 id="5-1-"><a name="5-1-" href="#5-1-"></a>5.1. 引用参数</h3><pre><code data-origin="&lt;pre&gt;&lt;code&gt;Tip
+所以按引用传递的参数必须加上 const.
+&lt;/code&gt;&lt;/pre&gt;">Tip
+所以按引用传递的参数必须加上 const.
+</code></pre><p>定义:</p><p>在 C 语言中, 如果函数需要修改变量的值, 参数必须为指针, 如 <code>int foo(int *pval)</code>. 在 C++ 中, 函数还可以声明引用参数: <code>int foo(int &amp;val)</code>.</p><p>优点:</p><p>定义引用参数防止出现 <code>(*pval)++</code> 这样丑陋的代码. 像拷贝构造函数这样的应用也是必需的. 而且更明确, 不接受 NULL 指针.</p><p>缺点:</p><p>容易引起误解, 因为引用在语法上是值变量却拥有指针的语义.</p><p>结论:</p><p>函数参数列表中, 所有引用参数都必须是 <code>const</code>:</p><pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;void Foo(const string &amp;amp;in, string *out);
+&lt;/code&gt;&lt;/pre&gt;">void Foo(const string &amp;in, string *out);
+</code></pre><p>事实上这在 Google Code 是一个硬性约定: 输入参数是值参或 <code>const</code> 引用, 输出参数为指针. 输入参数可以是 <code>const</code> 指针, 但决不能是 非 <code>const</code> 的引用参数.</p><p>在以下情况你可以把输入参数定义为 <code>const</code> 指针: 你想强调参数不是拷贝而来的, 在对象生存周期内必须一直存在; 最好同时在注释中详细说明一下. <code>bind2nd</code> 和 <code>mem_fun</code> 等 STL 适配器不接受引用参数, 这种情况下你也必须把函数参数声明成指针类型.</p><h3 id="5-2-"><a name="5-2-" href="#5-2-"></a>5.2. 函数重载</h3><pre><code data-origin="&lt;pre&gt;&lt;code&gt;Tip
+仅在输入参数类型不同, 功能相同时使用重载函数 (含构造函数). 不要用函数重载模拟 缺省函数参数.
+&lt;/code&gt;&lt;/pre&gt;">Tip
+仅在输入参数类型不同, 功能相同时使用重载函数 (含构造函数). 不要用函数重载模拟 缺省函数参数.
+</code></pre><p>定义:</p><p>你可以编写一个参数类型为 <code>const string&amp;</code> 的函数, 然后用另一个参数类型为<code>const char*</code> 的函数重载它:</p><pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;class MyClass {
+    public:
+    void Analyze(const string &amp;amp;text);
+    void Analyze(const char *text, size_t textlen);
+};
+&lt;/code&gt;&lt;/pre&gt;">class MyClass {
+    public:
+    void Analyze(const string &amp;text);
+    void Analyze(const char *text, size_t textlen);
+};
+</code></pre><p>优点:</p><p>通过重载参数不同的同名函数, 令代码更加直观. 模板化代码需要重载, 同时为使用者带来便利.</p><p>缺点:</p><p>限制使用重载的一个原因是在某个特定调用点很难确定到底调用的是哪个函数. 另一个原因是当派生类只重载了某个函数的部分变体, 会令很多人对继承的语义产生困惑. 此外在阅读库的用户代码时, 可能会因反对使用 缺省函数参数 造成不必要的费解.</p><p>结论:</p><p>如果你想重载一个函数, 考虑让函数名包含参数信息, 例如, 使用 <code>AppendString()</code>, <code>AppendInt()</code>而不是 <code>Append()</code>.</p><h3 id="5-3-"><a name="5-3-" href="#5-3-"></a>5.3. 缺省参数</h3><pre><code data-origin="&lt;pre&gt;&lt;code&gt;Tip
+我们不允许使用缺省函数参数.
+&lt;/code&gt;&lt;/pre&gt;">Tip
+我们不允许使用缺省函数参数.
+</code></pre><p>优点:</p><p>多数情况下, 你写的函数可能会用到很多的缺省值, 但偶尔你也会修改这些缺省值. 无须为了这些偶尔情况定义很多的函数, 用缺省参数就能很轻松的做到这点.</p><p>缺点:</p><p>大家通常都是通过查看别人的代码来推断如何使用 API. 用了缺省参数的代码更难维护, 从老代码复制粘贴而来的新代码可能只包含部分参数. 当缺省参数不适用于新代码时可能会导致重大问题.</p><p>结论:</p><p>我们规定所有参数必须明确指定, 迫使程序员理解 API 和各参数值的意义, 避免默默使用他们可能都还没意识到的缺省参数.</p><h3 id="5-4-alloca-"><a name="5-4-alloca-" href="#5-4-alloca-"></a>5.4. 变长数组和 <code>alloca()</code></h3><pre><code data-origin="&lt;pre&gt;&lt;code&gt;Tip
+我们不允许使用变长数组和 alloca().
+&lt;/code&gt;&lt;/pre&gt;">Tip
+我们不允许使用变长数组和 alloca().
+</code></pre><p>优点:</p><p>变长数组具有浑然天成的语法. 变长数组和 alloca() 也都很高效.</p><p>缺点:</p><p>变长数组和 alloca() 不是标准 C++ 的组成部分. 更重要的是, 它们根据数据大小动态分配堆栈内存, 会引起难以发现的内存越界 bugs: “在我的机器上运行的好好的, 发布后却莫名其妙的挂掉了”.</p><p>结论:</p><p>使用安全的内存分配器, 如 scoped_ptr / scoped_array.</p><h3 id="5-5-"><a name="5-5-" href="#5-5-"></a>5.5. 友元</h3><pre><code data-origin="&lt;pre&gt;&lt;code&gt;Tip
+我们允许合理的使用友元类及友元函数.
+&lt;/code&gt;&lt;/pre&gt;">Tip
+我们允许合理的使用友元类及友元函数.
+</code></pre><p>通常友元应该定义在同一文件内, 避免代码读者跑到其它文件查找使用该私有成员的类. 经常用到友元的一个地方是将 FooBuilder 声明为 Foo 的友元, 以便 FooBuilder 正确构造 Foo 的内部状态, 而无需将该状态暴露出来. 某些情况下, 将一个单元测试类声明成待测类的友元会很方便.</p><p>友元扩大了 (但没有打破) 类的封装边界. 某些情况下, 相对于将类成员声明为 public, 使用友元是更好的选择, 尤其是如果你只允许另一个类访问该类的私有成员时. 当然, 大多数类都只应该通过其提供的公有成员进行互操作.</p><h3 id="5-6-"><a name="5-6-" href="#5-6-"></a>5.6. 异常</h3><pre><code data-origin="&lt;pre&gt;&lt;code&gt;Tip
+我们不使用 C++ 异常.
+&lt;/code&gt;&lt;/pre&gt;">Tip
+我们不使用 C++ 异常.
+</code></pre><p>优点:</p><ul>
+<li>异常允许上层应用决定如何处理在底层嵌套函数中 “不可能出现的” 失败, 不像错误码记录那么含糊又易出错;</li>
+<li>很多现代语言都使用异常. 引入异常使得 C<em class="underline"> 与 Python, Java 以及其它 C</em> 相近的语言更加兼容.</li>
+<li>许多第三方 C++ 库使用异常, 禁用异常将导致很难集成这些库.</li>
+<li>异常是处理构造函数失败的唯一方法. 虽然可以通过工厂函数或 <code>Init()</code> 方法替代异常, 但他们分别需要堆分配或新的 “无效” 状态；</li>
+<li>在测试框架中使用异常确实很方便.</li>
+</ul><p>缺点:</p><ul>
+<li>在现有函数中添加 <code>throw</code> 语句时, 你必须检查所有调用点. 所有调用点得至少有基本的异常安全保护, 否则永远捕获不到异常, 只好 “开心的” 接受程序终止的结果. 例如, 如果<code>f()</code> 调用了 <code>g()</code>,<code>g()</code> 又调用了 <code>h()</code>, <code>h</code> 抛出的异常被 <code>f</code>捕获, <code>g</code>要当心了, 很可能会因疏忽而未被妥善清理.</li>
+<li>更普遍的情况是, 如果使用异常, 光凭查看代码是很难评估程序的控制流: 函数返回点可能在你意料之外. 这回导致代码管理和调试困难. 你可以通过规定何时何地如何使用异常来降低开销, 但是让开发人员必须掌握并理解这些规定带来的代价更大.</li>
+<li>异常安全要求同时采用 RAII 和不同编程实践. 要想轻松编写正确的异常安全代码, 需要大量的支撑机制配合. 另外, 要避免代码读者去理解整个调用结构图, 异常安全代码必须把写持久化状态的逻辑部分隔离到 “提交” 阶段. 它在带来好处的同时, 还有成本 (也许你不得不为了隔离 “提交” 而整出令人费解的代码). 允许使用异常会驱使我们不断为此付出代价, 即使我们觉得这很不划算.</li>
+<li>启用异常使生成的二进制文件体积变大, 延长了编译时间 (或许影响不大), 还可能增加地址空间压力;</li>
+<li>异常的实用性可能会怂恿开发人员在不恰当的时候抛出异常, 或者在不安全的地方从异常中恢复. 例如, 处理非法用户输入时就不应该抛出异常. 如果我们要完全列出这些约束, 这份风格指南会长出很多!</li>
+</ul><p>结论:</p><p>从表面上看, 使用异常利大于弊, 尤其是在新项目中. 但是对于现有代码, 引入异常会牵连到所有相关代码. 如果新项目允许异常向外扩散, 在跟以前未使用异常的代码整合时也将是个麻烦. 因为 Google 现有的大多数 C++ 代码都没有异常处理, 引入带有异常处理的新代码相当困难.</p><p>鉴于 Google 现有代码不接受异常, 在现有代码中使用异常比在新项目中使用的代价多少要大一些. 迁移过程比较慢, 也容易出错. 我们不相信异常的使用有效替代方案, 如错误代码, 断言等会造成严重负担.</p><p>我们并不是基于哲学或道德层面反对使用异常, 而是在实践的基础上. 我们希望在 Google 使用我们自己的开源项目, 但项目中使用异常会为此带来不便, 因此我们也建议不要在 Google 的开源项目中使用异常. 如果我们需要把这些项目推倒重来显然不太现实.</p><h3 id="5-7-"><a name="5-7-" href="#5-7-"></a>5.7. 运行时类型识别</h3><pre><code data-origin="&lt;pre&gt;&lt;code&gt;Tip
+我们禁止使用 RTTI.
+&lt;/code&gt;&lt;/pre&gt;">Tip
+我们禁止使用 RTTI.
+</code></pre><p>定义:</p><p>RTTI 允许程序员在运行时识别 C++ 类对象的类型.</p><p>优点:</p><p>RTTI 在某些单元测试中非常有用. 比如进行工厂类测试时, 用来验证一个新建对象是否为期望的动态类型.</p><p>除测试外, 极少用到.</p><p>缺点:</p><p>在运行时判断类型通常意味着设计问题. 如果你需要在运行期间确定一个对象的类型, 这通常说明你需要考虑重新设计你的类.</p><p>结论:</p><p>除单元测试外, 不要使用 RTTI. 如果你发现自己不得不写一些行为逻辑取决于对象类型的代码, 考虑换一种方式判断对象类型.</p><p>如果要实现根据子类类型来确定执行不同逻辑代码, 虚函数无疑更合适. 在对象内部就可以处理类型识别问题.</p><p>如果要在对象外部的代码中判断类型, 考虑使用双重分派方案, 如访问者模式. 可以方便的在对象本身之外确定类的类型.</p><p>如果你认为上面的方法你真的掌握不了, 你可以使用 RTTI, 但务必请三思 :-) . 不要试图手工实现一个貌似 RTTI 的替代方案, 我们反对使用 RTTI 的理由, 同样适用于那些在类型继承体系上使用类型标签的替代方案.</p><h3 id="5-8-"><a name="5-8-" href="#5-8-"></a>5.8. 类型转换</h3><pre><code data-origin="&lt;pre&gt;&lt;code&gt;Tip
+使用 C++ 的类型转换, 如 static_cast&amp;lt;&amp;gt;(). 不要使用 int y = (int)x 或 int y = int(x) 等转换方式;
+&lt;/code&gt;&lt;/pre&gt;">Tip
+使用 C++ 的类型转换, 如 static_cast&lt;&gt;(). 不要使用 int y = (int)x 或 int y = int(x) 等转换方式;
+</code></pre><p>定义:</p><p>C++ 采用了有别于 C 的类型转换机制, 对转换操作进行归类.</p><p>优点:</p><p>C 语言的类型转换问题在于模棱两可的操作; 有时是在做强制转换 (如 (int)3.5), 有时是在做类型转换 (如 (int)"hello"). 另外, C++ 的类型转换在查找时更醒目.</p><p>缺点:</p><p>恶心的语法.</p><p>结论:</p><p>不要使用 C 风格类型转换. 而应该使用 C++ 风格.</p><ul>
+<li>用 static_cast 替代 C 风格的值转换, 或某个类指针需要明确的向上转换为父类指针时.</li>
+<li>用 const_cast 去掉 const 限定符.</li>
+<li>用 reinterpret_cast 指针类型和整型或其它指针之间进行不安全的相互转换. 仅在你对所做一切了然于心时使用.</li>
+<li>dynamic_cast 测试代码以外不要使用. 除非是单元测试, 如果你需要在运行时确定类型信息, 说明有 设计缺陷.</li>
+</ul><h3 id="5-9-"><a name="5-9-" href="#5-9-"></a>5.9. 流</h3><pre><code data-origin="&lt;pre&gt;&lt;code&gt;Tip
+只在记录日志时使用流.
+&lt;/code&gt;&lt;/pre&gt;">Tip
+只在记录日志时使用流.
+</code></pre><p>定义:</p><p>流用来替代 printf() 和 scanf().</p><p>优点:</p><p>有了流, 在打印时不需要关心对象的类型. 不用担心格式化字符串与参数列表不匹配 (虽然在 gcc 中使用 printf 也不存在这个问题). 流的构造和析构函数会自动打开和关闭对应的文件.</p><p>缺点:</p><p>流使得 pread() 等功能函数很难执行. 如果不使用 printf 风格的格式化字符串, 某些格式化操作 (尤其是常用的格式字符串 %.*s) 用流处理性能是很低的. 流不支持字符串操作符重新排序 (%1s), 而这一点对于软件国际化很有用.</p><p>结论:</p><p>不要使用流, 除非是日志接口需要. 使用 printf 之类的代替.</p><p>使用流还有很多利弊, 但代码一致性胜过一切. 不要在代码中使用流.</p><p>拓展讨论:</p><p>对这一条规则存在一些争论, 这儿给出点深层次原因. 回想一下唯一性原则 (Only One Way): 我们希望在任何时候都只使用一种确定的 I/O 类型, 使代码在所有 I/O 处都保持一致. 因此, 我们不希望用户来决定是使用流还是 printf + read/write. 相反, 我们应该决定到底用哪一种方式. 把日志作为特例是因为日志是一个非常独特的应用, 还有一些是历史原因.</p><p>流的支持者们主张流是不二之选, 但观点并不是那么清晰有力. 他们指出的流的每个优势也都是其劣势. 流最大的优势是在输出时不需要关心打印对象的类型. 这是一个亮点. 同时, 也是一个不足: 你很容易用错类型, 而编译器不会报警. 使用流时容易造成的这类错误:</p><pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;cout &amp;lt;&amp;lt; this;   // Prints the address
+cout &amp;lt;&amp;lt; *this;  // Prints the contents
+&lt;/code&gt;&lt;/pre&gt;">cout &lt;&lt; this;   // Prints the address
+cout &lt;&lt; *this;  // Prints the contents
+</code></pre><p>由于 &lt;&lt; 被重载, 编译器不会报错. 就因为这一点我们反对使用操作符重载.</p><p>有人说 printf 的格式化丑陋不堪, 易读性差, 但流也好不到哪儿去. 看看下面两段代码吧, 实现相同的功能, 哪个更清晰?</p><pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;cerr &amp;lt;&amp;lt; &quot;Error connecting to '&quot; &amp;lt;&amp;lt; foo-&amp;gt;bar()-&amp;gt;hostname.first
+     &amp;lt;&amp;lt; &quot;:&quot; &amp;lt;&amp;lt; foo-&amp;gt;bar()-&amp;gt;hostname.second &amp;lt;&amp;lt; &quot;: &quot; &amp;lt;&amp;lt; strerror(errno);
+
+fprintf(stderr, &quot;Error connecting to '%s:%u: %s&quot;,
+        foo-&amp;gt;bar()-&amp;gt;hostname.first, foo-&amp;gt;bar()-&amp;gt;hostname.second,
+        strerror(errno));
+&lt;/code&gt;&lt;/pre&gt;">cerr &lt;&lt; "Error connecting to '" &lt;&lt; foo-&gt;bar()-&gt;hostname.first
+     &lt;&lt; ":" &lt;&lt; foo-&gt;bar()-&gt;hostname.second &lt;&lt; ": " &lt;&lt; strerror(errno);
+
+fprintf(stderr, "Error connecting to '%s:%u: %s",
+        foo-&gt;bar()-&gt;hostname.first, foo-&gt;bar()-&gt;hostname.second,
+        strerror(errno));
+</code></pre><p>你可能会说, “把流封装一下就会比较好了”, 这儿可以, 其他地方呢? 而且不要忘了, 我们的目标是使语言更紧凑, 而不是添加一些别人需要学习的新装备.</p><p>每一种方式都是各有利弊, “没有最好, 只有更适合”. 简单性原则告诫我们必须从中选择其一, 最后大多数决定采用 printf + read/write.</p><h3 id="5-10-"><a name="5-10-" href="#5-10-"></a>5.10. 前置自增和自减</h3><pre><code data-origin="&lt;pre&gt;&lt;code&gt;Tip
+对于迭代器和其他模板对象使用前缀形式 (++i) 的自增, 自减运算符.
+&lt;/code&gt;&lt;/pre&gt;">Tip
+对于迭代器和其他模板对象使用前缀形式 (++i) 的自增, 自减运算符.
+</code></pre><p>定义:</p><p>对于变量在自增 (<em class="underline">i 或 i</em>) 或自减 (--i 或 i--) 后表达式的值又没有没用到的情况下, 需要确定到底是使用前置还是后置的自增 (自减).</p><p>优点:</p><p>不考虑返回值的话, 前置自增 (<em class="underline">i) 通常要比后置自增 (i</em>) 效率更高. 因为后置自增 (或自减) 需要对表达式的值 i 进行一次拷贝. 如果 i 是迭代器或其他非数值类型, 拷贝的代价是比较大的. 既然两种自增方式实现的功能一样, 为什么不总是使用前置自增呢?</p><p>缺点:</p><p>在 C 开发中, 当表达式的值未被使用时, 传统的做法是使用后置自增, 特别是在 for 循环中. 有些人觉得后置自增更加易懂, 因为这很像自然语言, 主语 (i) 在谓语动词 (++) 前.</p><p>结论:</p><p>对简单数值 (非对象), 两种都无所谓. 对迭代器和模板类型, 使用前置自增 (自减).</p><h3 id="5-11-const-"><a name="5-11-const-" href="#5-11-const-"></a>5.11. const 的使用</h3><pre><code data-origin="&lt;pre&gt;&lt;code&gt;Tip
+我们强烈建议你在任何可能的情况下都要使用 const.
+&lt;/code&gt;&lt;/pre&gt;">Tip
+我们强烈建议你在任何可能的情况下都要使用 const.
+</code></pre><p>定义:</p><p>在声明的变量或参数前加上关键字 const 用于指明变量值不可被篡改 (如 const int foo ). 为类中的函数加上 const 限定符表明该函数不会修改类成员变量的状态 (如 class Foo { int Bar(char c) const; };).</p><p>优点:</p><p>大家更容易理解如何使用变量. 编译器可以更好地进行类型检测, 相应地, 也能生成更好的代码. 人们对编写正确的代码更加自信, 因为他们知道所调用的函数被限定了能或不能修改变量值. 即使是在无锁的多线程编程中, 人们也知道什么样的函数是安全的.</p><p>缺点:</p><p>const 是入侵性的: 如果你向一个函数传入 const 变量, 函数原型声明中也必须对应 const 参数 (否则变量需要 const_cast 类型转换), 在调用库函数时显得尤其麻烦.</p><p>结论:</p><p>const 变量, 数据成员, 函数和参数为编译时类型检测增加了一层保障; 便于尽早发现错误. 因此, 我们强烈建议在任何可能的情况下使用 const:</p><ul>
+<li>如果函数不会修改传入的引用或指针类型参数, 该参数应声明为 const.</li>
+<li>尽可能将函数声明为 const. 访问函数应该总是 const. 其他不会修改任何数据成员, 未调用非 const 函数, 不会返回数据成员非 const 指针或引用的函数也应该声明成 const.</li>
+<li>如果数据成员在对象构造之后不再发生变化, 可将其定义为 const.</li>
+<li>然而, 也不要发了疯似的使用 const. 像 const int <em> const </em> const x; 就有些过了, 虽然它非常精确的描述了常量 x. 关注真正有帮助意义的信息: 前面的例子写成 const int** x 就够了.</li>
+</ul><p>关键字 mutable 可以使用, 但是在多线程中是不安全的, 使用时首先要考虑线程安全.</p><p>const 的位置:</p><p>有人喜欢 int const <em>foo 形式, 不喜欢 const int</em> foo, 他们认为前者更一致因此可读性也更好: 遵循了 const 总位于其描述的对象之后的原则. 但是一致性原则不适用于此, “不要过度使用” 的声明可以取消大部分你原本想保持的一致性. 将 const 放在前面才更易读, 因为在自然语言中形容词 (const) 是在名词 (int) 之前.</p><p>这是说, 我们提倡但不强制 const 在前. 但要保持代码的一致性! (yospaly 注: 也就是不要在一些地方把 const 写在类型前面, 在其他地方又写在后面, 确定一种写法, 然后保持一致.)</p><h3 id="5-12-"><a name="5-12-" href="#5-12-"></a>5.12. 整型</h3><pre><code data-origin="&lt;pre&gt;&lt;code&gt;Tip
+C++ 内建整型中, 仅使用 int. 如果程序中需要不同大小的变量, 可以使用 &amp;lt;stdint.h&amp;gt; 中长度精确的整型, 如 int16_t.
+&lt;/code&gt;&lt;/pre&gt;">Tip
+C++ 内建整型中, 仅使用 int. 如果程序中需要不同大小的变量, 可以使用 &lt;stdint.h&gt; 中长度精确的整型, 如 int16_t.
+</code></pre><p>定义:</p><p>C++ 没有指定整型的大小. 通常人们假定 short 是 16 位, int<code>是 32 位,</code>long 是 32 位, long long 是 64 位.</p><p>优点:</p><p>保持声明统一.</p><p>缺点:</p><p>C++ 中整型大小因编译器和体系结构的不同而不同.</p><p>结论:</p><p><stdint.h> 定义了 int16_t, uint32_t, int64_t 等整型, 在需要确保整型大小时可以使用它们代替 short, unsigned long long 等. 在 C 整型中, 只使用 int. 在合适的情况下, 推荐使用标准类型如 size_t 和 ptrdiff_t.</stdint.h></p><p>如果已知整数不会太大, 我们常常会使用 int, 如循环计数. 在类似的情况下使用原生类型 int. 你可以认为 int 至少为 32 位, 但不要认为它会多于 32 位. 如果需要 64 位整型, 用 int64_t 或 uint64_t.</p><p>对于大整数, 使用 int64_t.</p><p>不要使用 uint32_t 等无符号整型, 除非你是在表示一个位组而不是一个数值, 或是你需要定义二进制补码溢出. 尤其是不要为了指出数值永不会为负, 而使用无符号类型. 相反, 你应该使用断言来保护数据.
+关于无符号整数:</p><p>有些人, 包括一些教科书作者, 推荐使用无符号类型表示非负数. 这种做法试图达到自我文档化. 但是, 在 C 语言中, 这一优点被由其导致的 bug 所淹没. 看看下面的例子:</p><pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;for (unsigned int i = foo.Length()-1; i &amp;gt;= 0; --i) ...
+&lt;/code&gt;&lt;/pre&gt;">for (unsigned int i = foo.Length()-1; i &gt;= 0; --i) ...
+</code></pre><p>上述循环永远不会退出! 有时 gcc 会发现该 bug 并报警, 但大部分情况下都不会. 类似的 bug 还会出现在比较有符合变量和无符号变量时. 主要是 C 的类型提升机制会致使无符号类型的行为出乎你的意料.</p><p>因此, 使用断言来指出变量为非负数, 而不是使用无符号型!</p><h3 id="5-13-64-"><a name="5-13-64-" href="#5-13-64-"></a>5.13. 64 位下的可移植性</h3><pre><code data-origin="&lt;pre&gt;&lt;code&gt;Tip
+代码应该对 64 位和 32 位系统友好. 处理打印, 比较, 结构体对齐时应切记:
+&lt;/code&gt;&lt;/pre&gt;">Tip
+代码应该对 64 位和 32 位系统友好. 处理打印, 比较, 结构体对齐时应切记:
+</code></pre><ul>
+<li><p>对于某些类型, printf() 的指示符在 32 位和 64 位系统上可移植性不是很好. C99 标准定义了一些可移植的格式化指示符. 不幸的是, MSVC 7.1 并非全部支持, 而且标准中也有所遗漏, 所以有时我们不得不自己定义一个丑陋的版本 (头文件 inttypes.h 仿标准风格):</p>
+<pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;  // printf macros for size_t, in the style of inttypes.h
+  #ifdef _LP64
+  #define __PRIS_PREFIX &quot;z&quot;
+  #else
+  #define __PRIS_PREFIX
+  #endif
+
+  // Use these macros after a % in a printf format string
+  // to get correct 32/64 bit behavior, like this:
+  // size_t size = records.size();
+  // printf(&quot;%&quot;PRIuS&quot;\n&quot;, size);
+  #define PRIdS __PRIS_PREFIX &quot;d&quot;
+  #define PRIxS __PRIS_PREFIX &quot;x&quot;
+  #define PRIuS __PRIS_PREFIX &quot;u&quot;
+  #define PRIXS __PRIS_PREFIX &quot;X&quot;
+  #define PRIoS __PRIS_PREFIX &quot;o&quot;
+&lt;/code&gt;&lt;/pre&gt;">  // printf macros for size_t, in the style of inttypes.h
+  #ifdef _LP64
+  #define __PRIS_PREFIX "z"
+  #else
+  #define __PRIS_PREFIX
+  #endif
+
+  // Use these macros after a % in a printf format string
+  // to get correct 32/64 bit behavior, like this:
+  // size_t size = records.size();
+  // printf("%"PRIuS"\n", size);
+  #define PRIdS __PRIS_PREFIX "d"
+  #define PRIxS __PRIS_PREFIX "x"
+  #define PRIuS __PRIS_PREFIX "u"
+  #define PRIXS __PRIS_PREFIX "X"
+  #define PRIoS __PRIS_PREFIX "o"
+</code></pre>
+</li>
+</ul><blockquote>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>不要使用</th>
+<th>使用</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>void * (或其他指针类型)</td>
+<td>%lx</td>
+<td>%p</td>
+<td></td>
+</tr>
+<tr>
+<td>int64_t</td>
+<td>%qd, %lld</td>
+<td>%"PRId64"</td>
+<td></td>
+</tr>
+<tr>
+<td>uint64_t</td>
+<td>%qu, %llu, %llx</td>
+<td>%"PRIu64", %"PRIx64"</td>
+<td></td>
+</tr>
+<tr>
+<td>size_t</td>
+<td>%u</td>
+<td>%"PRIuS", %"PRIxS"</td>
+<td>C99 规定 %zu</td>
+</tr>
+<tr>
+<td>ptrdiff_t</td>
+<td>%d</td>
+<td>%"PRIdS"</td>
+<td>C99 规定 %zd</td>
+</tr>
+</tbody>
+</table>
+<p>注意 <code>PRI*</code> 宏会被编译器扩展为独立字符串. 因此如果使用非常量的格式化字符串, 需要将宏的值而不是宏名插入格式中. 使用 <code>PRI*</code> 宏同样可以在 % 后包含长度指示符. 例如, <code>printf("x = %30"PRIuS"\n", x)</code> 在 32 位 Linux 上将被展开为 <code>printf("x = %30" "u" "\n", x)</code>, 编译器当成 <code>printf("x = %30u\n", x)</code> 处理 .</p>
+</blockquote><ul>
+<li><p>记住 <code>sizeof(void *) != sizeof(int)</code>. 如果需要一个指针大小的整数要用 <code>intptr_t</code>.</p>
+</li>
+<li><p>你要非常小心的对待结构体对齐, 尤其是要持久化到磁盘上的结构体 (yospaly 注: 持久化 - 将数据按字节流顺序保存在磁盘文件或数据库中). 在 64 位系统中, 任何含有 int64<em>t/uint64<em>t 成员的类/结构体, 缺省都以 8 字节在结尾对齐. 如果 32 位和 64 位代码要共用持久化的结构体, 需要确保两种体系结构下的结构体对齐一致. 大多数编译器都允许调整结构体对齐. gcc 中可使用 __attribute</em></em>((packed)). MSVC 则提供了 #pragma pack() 和 __declspec(align()) (YuleFox 注, 解决方案的项目属性里也可以直接设置).</p>
+</li>
+<li><p>创建 64 位常量时使用 LL 或 ULL 作为后缀, 如:</p>
+<pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;int64_t my_value = 0×123456789LL;
+uint64_t my_mask = 3ULL &amp;lt;&amp;lt; 48;
+&lt;/code&gt;&lt;/pre&gt;">int64_t my_value = 0×123456789LL;
+uint64_t my_mask = 3ULL &lt;&lt; 48;
+</code></pre>
+</li>
+<li><p>如果你确实需要 32 位和 64 位系统具有不同代码, 可以使用 #ifdef _LP64 指令来切分 32/64 位代码. (尽量不要这么做, 如果非用不可, 尽量使修改局部化)</p>
+</li>
+</ul><h3 id="5-14-"><a name="5-14-" href="#5-14-"></a>5.14. 预处理宏</h3><pre><code data-origin="&lt;pre&gt;&lt;code&gt;Tip
+使用宏时要非常谨慎, 尽量以内联函数, 枚举和常量代替之.
+&lt;/code&gt;&lt;/pre&gt;">Tip
+使用宏时要非常谨慎, 尽量以内联函数, 枚举和常量代替之.
+</code></pre><p>宏意味着你和编译器看到的代码是不同的. 这可能会导致异常行为, 尤其因为宏具有全局作用域.</p><p>值得庆幸的是, C++ 中, 宏不像在 C 中那么必不可少. 以往用宏展开性能关键的代码, 现在可以用内联函数替代. 用宏表示常量可被 const 变量代替. 用宏 “缩写” 长变量名可被引用代替. 用宏进行条件编译... 这个, 千万别这么做, 会令测试更加痛苦 (#define 防止头文件重包含当然是个特例).</p><p>宏可以做一些其他技术无法实现的事情, 在一些代码库 (尤其是底层库中) 可以看到宏的某些特性 (如用 # 字符串化, 用 ## 连接等等). 但在使用前, 仔细考虑一下能不能不使用宏达到同样的目的.</p><p>下面给出的用法模式可以避免使用宏带来的问题; 如果你要宏, 尽可能遵守:</p><ul>
+<li>不要在 .h 文件中定义宏.</li>
+<li>在马上要使用时才进行 #define, 使用后要立即 #undef.</li>
+<li>不要只是对已经存在的宏使用#undef，选择一个不会冲突的名称；</li>
+<li>不要试图使用展开后会导致 C++ 构造不稳定的宏, 不然也至少要附上文档说明其行为.</li>
+</ul><h3 id="5-15-0-null"><a name="5-15-0-null" href="#5-15-0-null"></a>5.15. 0 和 NULL</h3><pre><code data-origin="&lt;pre&gt;&lt;code&gt;Tip
+整数用 0, 实数用 0.0, 指针用 NULL, 字符 (串) 用 '\0'.
+&lt;/code&gt;&lt;/pre&gt;">Tip
+整数用 0, 实数用 0.0, 指针用 NULL, 字符 (串) 用 '\0'.
+</code></pre><p>整数用 0, 实数用 0.0, 这一点是毫无争议的.</p><p>对于指针 (地址值), 到底是用 0 还是 NULL, Bjarne Stroustrup 建议使用最原始的 0. 我们建议使用看上去像是指针的 NULL, 事实上一些 C++ 编译器 (如 gcc 4.1.0) 对 NULL 进行了特殊的定义, 可以给出有用的警告信息, 尤其是 sizeof(NULL) 和 sizeof(0) 不相等的情况.</p><p>字符 (串) 用 '\0', 不仅类型正确而且可读性好.</p><h3 id="5-16-sizeof"><a name="5-16-sizeof" href="#5-16-sizeof"></a>5.16. sizeof</h3><pre><code data-origin="&lt;pre&gt;&lt;code&gt;Tip
+尽可能用 sizeof(varname) 代替 sizeof(type).
+&lt;/code&gt;&lt;/pre&gt;">Tip
+尽可能用 sizeof(varname) 代替 sizeof(type).
+</code></pre><p>使用 sizeof(varname) 是因为当代码中变量类型改变时会自动更新. 某些情况下 sizeof(type) 或许有意义, 但还是要尽量避免, 因为它会导致变量类型改变后不能同步.</p><pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;Struct data;
+Struct data; memset(&amp;amp;data, 0, sizeof(data));
+&lt;/code&gt;&lt;/pre&gt;">Struct data;
+Struct data; memset(&amp;data, 0, sizeof(data));
+</code></pre><blockquote>
+<p><strong class="highlight">Warning</strong></p>
+<pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;memset(&amp;amp;data, 0, sizeof(Struct));
+&lt;/code&gt;&lt;/pre&gt;">memset(&amp;data, 0, sizeof(Struct));
+</code></pre>
+</blockquote><h3 id="5-17-boost-"><a name="5-17-boost-" href="#5-17-boost-"></a>5.17. Boost 库</h3><pre><code data-origin="&lt;pre&gt;&lt;code&gt;Tip
+只使用 Boost 中被认可的库.
+&lt;/code&gt;&lt;/pre&gt;">Tip
+只使用 Boost 中被认可的库.
+</code></pre><p>定义:</p><p>Boost 库集 是一个广受欢迎, 经过同行鉴定, 免费开源的 C++ 库集.</p><p>优点:</p><p>Boost代码质量普遍较高, 可移植性好, 填补了 C++ 标准库很多空白, 如型别的特性, 更完善的绑定器, 更好的智能指针, 同时还提供了 TR1 (标准库扩展) 的实现.</p><p>缺点:</p><p>某些 Boost 库提倡的编程实践可读性差, 比如元编程和其他高级模板技术, 以及过度 “函数化” 的编程风格.</p><p>结论:</p><p>为了向阅读和维护代码的人员提供更好的可读性, 我们只允许使用 Boost 一部分经认可的特性子集. 目前允许使用以下库:</p><ul>
+<li>Compressed Pair : boost/compressed_pair.hpp</li>
+<li>Pointer Container : boost/ptr_container (序列化除外)</li>
+<li>Array : boost/array.hpp</li>
+<li>The Boost Graph Library (BGL) : boost/graph (序列化除外)</li>
+<li>Property Map : boost/property_map.hpp</li>
+<li>Iterator 中处理迭代器定义的部分 : boost/iterator/iterator_adaptor.hpp, boost/iterator/iterator_facade.hpp, 以及 boost/function_output_iterator.hpp
+我们正在积极考虑增加其它 Boost 特性, 所以列表中的规则将不断变化.</li>
+</ul><h2 id="6-"><a name="6-" href="#6-"></a>6. 命名约定</h2><p>最重要的一致性规则是命名管理. 命名风格快速获知名字代表是什么东东: 类型? 变量? 函数? 常量? 宏 ... ? 甚至不需要去查找类型声明. 我们大脑中的模式匹配引擎可以非常可靠的处理这些命名规则.</p><p>命名规则具有一定随意性, 但相比按个人喜好命名, 一致性更重, 所以不管你怎么想, 规则总归是规则.</p><h3 id="6-1-"><a name="6-1-" href="#6-1-"></a>6.1. 通用命名规则</h3><blockquote>
+<p>Tip<br>    函数命名, 变量命名, 文件命名应具备描述性; 不要过度缩写. 类型和变量应该是名词, 函数名可以用 “命令性” 动词.</p>
+</blockquote><h6 id="-"><a name="-" href="#-"></a>如何命名:</h6><p>尽可能给出描述性的名称. 不要节约行空间, 让别人很快理解你的代码更重要. </p><blockquote>
+<p>好的命名风格:</p>
+<pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;int num_errors;                  // Good.
+int num_completed_connections;   // Good.
+&lt;/code&gt;&lt;/pre&gt;">int num_errors;                  // Good.
+int num_completed_connections;   // Good.
+</code></pre>
+<p>糟糕的命名使用含糊的缩写或随意的字符:</p>
+<pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;int n;                           // Bad - meaningless.
+int nerr;                        // Bad - ambiguous abbreviation.
+int n_comp_conns;                // Bad - ambiguous abbreviation.
+&lt;/code&gt;&lt;/pre&gt;">int n;                           // Bad - meaningless.
+int nerr;                        // Bad - ambiguous abbreviation.
+int n_comp_conns;                // Bad - ambiguous abbreviation.
+</code></pre>
+</blockquote><p>类型和变量名一般为名词: 如 <code>FileOpener</code>, <code>num_errors</code>.</p><p>函数名通常是指令性的 (确切的说它们应该是命令), 如 <code>OpenFile()</code>, <code>set_num_errors()</code>. 取值函数是个特例 (在 函数命名 处详细阐述), 函数名和它要取值的变量同名.</p><h6 id="-"><a name="-" href="#-"></a>缩写:</h6><p>除非该缩写在其它地方都非常普遍, 否则不要使用. 例如:</p><blockquote>
+<pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;// Good
+// These show proper names with no abbreviations.
+int num_dns_connections;  // 大部分人都知道 &quot;DNS&quot; 是啥意思.
+int price_count_reader;   // OK, price count. 有意义.
+&lt;/code&gt;&lt;/pre&gt;">// Good
+// These show proper names with no abbreviations.
+int num_dns_connections;  // 大部分人都知道 "DNS" 是啥意思.
+int price_count_reader;   // OK, price count. 有意义.
+</code></pre>
+<p><strong class="highlight">Warning</strong></p>
+<pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;// Bad!
+// Abbreviations can be confusing or ambiguous outside a small group.
+int wgc_connections;  // Only your group knows what this stands for.
+int pc_reader;        // Lots of things can be abbreviated &quot;pc&quot;.
+&lt;/code&gt;&lt;/pre&gt;">// Bad!
+// Abbreviations can be confusing or ambiguous outside a small group.
+int wgc_connections;  // Only your group knows what this stands for.
+int pc_reader;        // Lots of things can be abbreviated "pc".
+</code></pre>
+</blockquote><p>永远不要用省略字母的缩写:</p><blockquote>
+<pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;int error_count;  // Good.
+int error_cnt;    // Bad.
+&lt;/code&gt;&lt;/pre&gt;">int error_count;  // Good.
+int error_cnt;    // Bad.
+</code></pre>
+</blockquote><h3 id="6-2-"><a name="6-2-" href="#6-2-"></a>6.2. 文件命名</h3><blockquote>
+<p>Tip<br>    文件名要全部小写, 可以包含下划线 (_) 或连字符 (-). 按项目约定来.</p>
+</blockquote><p>可接受的文件命名:</p><pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;my_useful_class.cc
+my-useful-class.cc
+myusefulclass.cc
+&lt;/code&gt;&lt;/pre&gt;">my_useful_class.cc
+my-useful-class.cc
+myusefulclass.cc
+</code></pre><p><code>C++</code> 文件要以 .cc 结尾, 头文件以 .h 结尾.<br><strong class="highlight">kaer</strong> <code>C++</code>文件可以以.cpp结尾</p><p>不要使用已经存在于 /usr/include 下的文件名 (注: 即编译器搜索系统头文件的路径), 如 db.h.</p><p>通常应尽量让文件名更加明确. http_server_logs.h 就比 logs.h 要好. 定义类时文件名一般成对出现, 如 foo_bar.h 和 foo_bar.cc, 对应于类 FooBar.</p><p>内联函数必须放在 .h 文件中. 如果内联函数比较短, 就直接放在 .h 中. 如果代码比较长, 可以放到以 -inl.h 结尾的文件中. 对于包含大量内联代码的类, 可以使用三个文件:</p><pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;url_table.h      // The class declaration.
+url_table.cc     // The class definition.
+url_table-inl.h  // Inline functions that include lots of code.
+&lt;/code&gt;&lt;/pre&gt;">url_table.h      // The class declaration.
+url_table.cc     // The class definition.
+url_table-inl.h  // Inline functions that include lots of code.
+</code></pre><p>参考 -inl.h 文件 一节.</p><h3 id="6-3-"><a name="6-3-" href="#6-3-"></a>6.3. 类型命名</h3><blockquote>
+<p>Tip<br>    类型名称的每个单词首字母均大写, 不包含下划线: MyExcitingClass, MyExcitingEnum.</p>
+</blockquote><p>所有类型命名 —— 类, 结构体, 类型定义 (typedef), 枚举 —— 均使用相同约定. 例如:</p><pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;// classes and structs
+class UrlTable { ...
+class UrlTableTester { ...
+struct UrlTableProperties { ...
+
+// typedefs
+typedef hash_map&amp;lt;UrlTableProperties *, string&amp;gt; PropertiesMap;
+
+// enums
+enum UrlTableErrors { ...
+&lt;/code&gt;&lt;/pre&gt;">// classes and structs
+class UrlTable { ...
+class UrlTableTester { ...
+struct UrlTableProperties { ...
+
+// typedefs
+typedef hash_map&lt;UrlTableProperties *, string&gt; PropertiesMap;
+
+// enums
+enum UrlTableErrors { ...
+</code></pre><h3 id="6-4-kaer-"><a name="6-4-kaer-" href="#6-4-kaer-"></a>6.4. 变量命名<strong class="highlight">kaer</strong></h3><blockquote>
+<p>Tip<br>    遵循Qt的变量命名风格</p>
+</blockquote><h5 id="-"><a name="-" href="#-"></a>类的成员变量命名:</h5><p>如</p><pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;class KaerClasss{
+    std::string userName;
+    int parentId;
+}
+&lt;/code&gt;&lt;/pre&gt;">class KaerClasss{
+    std::string userName;
+    int parentId;
+}
+</code></pre><h5 id="-"><a name="-" href="#-"></a>普通变量命名:</h5><p>可以使用下划线分割的命名方法</p><blockquote>
+<p>举例:</p>
+<pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;string table_name;  // OK - uses underscore.
+string tablename;   // OK - all lowercase.
+string tableName;   // OK - mixed case.
+&lt;/code&gt;&lt;/pre&gt;">string table_name;  // OK - uses underscore.
+string tablename;   // OK - all lowercase.
+string tableName;   // OK - mixed case.
+</code></pre>
+</blockquote><h5 id="-"><a name="-" href="#-"></a>结构体变量:</h5><p>为区分结构体变量与类变量的区别，使用下划线分割的命名方法:</p><blockquote>
+<pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;struct UrlTableProperties {
+    string name;
+    int num_entries;
+}
+&lt;/code&gt;&lt;/pre&gt;">struct UrlTableProperties {
+    string name;
+    int num_entries;
+}
+</code></pre>
+</blockquote><p>结构体与类的讨论参考 结构体 vs. 类 一节.</p><h5 id="-"><a name="-" href="#-"></a>全局变量:</h5><p>对全局变量没有特别要求, 少用就好, 但如果你要用, 用 g_ 或其它标志作为前缀, 以便更好的区分局部变量.</p><h3 id="6-5-"><a name="6-5-" href="#6-5-"></a>6.5. 常量命名</h3><pre><code data-origin="&lt;pre&gt;&lt;code&gt;Tip
+在名称前加 k: kDaysInAWeek.
+&lt;/code&gt;&lt;/pre&gt;">Tip
+在名称前加 k: kDaysInAWeek.
+</code></pre><p>所有编译时常量, 无论是局部的, 全局的还是类中的, 和其他变量稍微区别一下. k 后接大写字母开头的单词::
+const int kDaysInAWeek = 7;</p><h3 id="6-6-"><a name="6-6-" href="#6-6-"></a>6.6. 函数命名</h3><pre><code data-origin="&lt;pre&gt;&lt;code&gt;Tip
+常规函数使用大小写混合, 取值和设值函数则要求与变量名匹配: `MyExcitingFunction()`, `MyExcitingMethod()`, `my_exciting_member_variable()`, `set_my_exciting_member_variable()`.
+&lt;/code&gt;&lt;/pre&gt;">Tip
+常规函数使用大小写混合, 取值和设值函数则要求与变量名匹配: `MyExcitingFunction()`, `MyExcitingMethod()`, `my_exciting_member_variable()`, `set_my_exciting_member_variable()`.
+</code></pre><p>常规函数:    </p><p>函数名的每个单词首字母大写, 没有下划线:</p><pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;AddTableEntry()
+DeleteUrl()
+&lt;/code&gt;&lt;/pre&gt;">AddTableEntry()
+DeleteUrl()
+</code></pre><p>取值和设值函数:
+取值和设值函数要与存取的变量名匹配. 这儿摘录一个类, <code>num_entries_</code> 是该类的实例变量:</p><pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;class MyClass {
+    public:
+        ...
+        int num_entries() const { return num_entries_; }
+        void set_num_entries(int num_entries) { num_entries_ = num_entries; }
+
+    private:
+        int num_entries_;
+};
+&lt;/code&gt;&lt;/pre&gt;">class MyClass {
+    public:
+        ...
+        int num_entries() const { return num_entries_; }
+        void set_num_entries(int num_entries) { num_entries_ = num_entries; }
+
+    private:
+        int num_entries_;
+};
+</code></pre><p>其它非常短小的内联函数名也可以用小写字母, 例如. 如果你在循环中调用这样的函数甚至都不用缓存其返回值, 小写命名就可以接受.</p><h3 id="6-7-"><a name="6-7-" href="#6-7-"></a>6.7. 名字空间命名</h3><pre><code data-origin="&lt;pre&gt;&lt;code&gt;Tip
+名字空间用小写字母命名, 并基于项目名称和目录结构: `google_awesome_project`.
+&lt;/code&gt;&lt;/pre&gt;">Tip
+名字空间用小写字母命名, 并基于项目名称和目录结构: `google_awesome_project`.
+</code></pre><p>关于名字空间的讨论和如何命名, 参考 名字空间 一节.</p><h3 id="6-8-"><a name="6-8-" href="#6-8-"></a>6.8. 枚举命名</h3><blockquote>
+<p>Tip<br>    枚举的命名应当和 常量 或 宏 一致: kEnumName 或是 ENUM_NAME.<br>    优先选择常量风格的命名方式.</p>
+</blockquote><p>单独的枚举值应该优先采用 常量 的命名方式. 但 宏 方式的命名也可以接受. 枚举名 UrlTableErrors (以及 AlternateUrlTableErrors) 是类型, 所以要用大小写混合的方式.</p><pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;enum UrlTableErrors {
+    kOK = 0,
+    kErrorOutOfMemory,
+    kErrorMalformedInput,
+};
+enum AlternateUrlTableErrors {
+    OK = 0,
+    OUT_OF_MEMORY = 1,
+    MALFORMED_INPUT = 2,
+};
+&lt;/code&gt;&lt;/pre&gt;">enum UrlTableErrors {
+    kOK = 0,
+    kErrorOutOfMemory,
+    kErrorMalformedInput,
+};
+enum AlternateUrlTableErrors {
+    OK = 0,
+    OUT_OF_MEMORY = 1,
+    MALFORMED_INPUT = 2,
+};
+</code></pre><h3 id="6-9-"><a name="6-9-" href="#6-9-"></a>6.9. 宏命名</h3><blockquote>
+<p>Tip<br>    你并不打算 使用宏, 对吧? 如果你一定要用, 像这样命名: MY_MACRO_THAT_SCARES_SMALL_CHILDREN.</p>
+</blockquote><p>参考 预处理宏 <preprocessor-macros>; 通常 不应该 使用宏. 如果不得不用, 其命名像枚举命名一样全部大写, 使用下划线:</preprocessor-macros></p><pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;#define ROUND(x) ...
+#define PI_ROUNDED 3.0
+&lt;/code&gt;&lt;/pre&gt;">#define ROUND(x) ...
+#define PI_ROUNDED 3.0
+</code></pre><h3 id="6-10-"><a name="6-10-" href="#6-10-"></a>6.10. 命名规则的特例</h3><blockquote>
+<p>Tip<br>    如果你命名的实体与已有 C/C++ 实体相似, 可参考现有命名策略.</p>
+</blockquote><p><code>bigopen()</code>: 函数名, 参照 <code>open()</code> 的形式</p><p><code>uint</code>: <code>typedef</code></p><p><code>bigpos</code>: <code>struct</code> 或 <code>class</code>, 参照 <code>pos</code> 的形式</p><p><code>sparse_hash_map</code>:    STL 相似实体; 参照 STL 命名约定</p><p><code>LONGLONG_MAX</code>: 常量, 如同 INT_MAX</p><p><strong class="highlight">kaer</strong>使用Qt编写程序，变量名称可以使用驼峰命名法</p><h2 id="7-"><a name="7-" href="#7-"></a>7. 注释</h2><p>注释虽然写起来很痛苦, 但对保证代码可读性至关重要. 下面的规则描述了如何注释以及在哪儿注释. 当然也要记住: 注释固然很重要, 但最好的代码本身应该是自文档化. 有意义的类型名和变量名, 要远胜过要用注释解释的含糊不清的名字.</p><p>你写的注释是给代码读者看的: 下一个需要理解你的代码的人. 慷慨些吧, 下一个人可能就是你!</p><h3 id="7-1-"><a name="7-1-" href="#7-1-"></a>7.1. 注释风格</h3><blockquote>
+<p>tip<br>    使用 <code>//</code> 或 <code>/* */</code>, 统一就好.</p>
+</blockquote><p><code>//</code> 或 <code>/* */</code> 都可以; 但 <code>//</code> <strong>更</strong> 常用. 要在如何注释及注释风格上确保统一.</p><h3 id="7-2-"><a name="7-2-" href="#7-2-"></a>7.2. 文件注释</h3><blockquote>
+<p>tip<br>    在每一个文件开头加入版权公告, 然后是文件内容描述.    </p>
+<p>文件注释可以炫耀你的成就, 也是为了捅了篓子别人可以找你;</p>
+</blockquote><p>法律公告和作者信息:<br>每个文件都应该包含以下项, 依次是:</p><ul>
+<li><p>版权声明 (比如, <code>Copyright 2014 Kaer Electric Co.,Ltd</code>)</p>
+</li>
+<li><p>许可证. 为项目选择合适的许可证版本 (比如, Apache 2.0, BSD, LGPL, GPL)</p>
+</li>
+<li><p>作者: 标识文件的原始作者.</p>
+</li>
+</ul><p>如果你对原始作者的文件做了重大修改, 将你的信息添加到作者信息里. 这样当其他人对该文件有疑问时可以知道该联系谁.</p><p>文件内容:    </p><p>紧接着版权许可和作者信息之后, 每个文件都要用注释描述文件内容.</p><p>通常, <code>.h</code> 文件要对所声明的类的功能和用法作简单说明. <code>.cc</code> 文件通常包含了更多的实现细节或算法技巧讨论,  如果你感觉这些实现细节或算法技巧讨论对于理解 <code>.h</code> 文件有帮助, 可以该注释挪到 <code>.h</code>, 并在 <code>.cc</code> 中指出文档在 <code>.h</code>.</p><p>不要简单的在 <code>.h</code> 和 <code>.cc</code> 间复制注释. 这种偏离了注释的实际意义.</p><blockquote>
+<p><strong class="highlight">kaer</strong>例如</p>
+<pre><code class="lang-cpp hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-cpp&quot;&gt;/*
+ *
+ * Copyright 2014 Kaer Electric Co.,Ltd
+ * Listens see &amp;lt;http://www.gnu.org/licenses/&amp;gt;.
+ * AUTHORS somebody
+ *
+ * RecorderAvi 实现了视频数据存储成avi文件的功能
+ *
+ */
+&lt;/code&gt;&lt;/pre&gt;">/*
+ *
+ * Copyright 2014 Kaer Electric Co.,Ltd
+ * Listens see &lt;http://www.gnu.org/licenses/&gt;.
+ * AUTHORS somebody
+ *
+ * RecorderAvi 实现了视频数据存储成avi文件的功能
+ *
+ */
+</code></pre>
+</blockquote><h3 id="7-3-"><a name="7-3-" href="#7-3-"></a>7.3. 类注释</h3><blockquote>
+<p>tip<br>    每个类的定义都要附带一份注释, 描述类的功能和用法.</p>
+</blockquote><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;    // Iterates over the contents of a GargantuanTable.  Sample usage:
+    //    GargantuanTable_Iterator* iter = table-&amp;gt;NewIterator();
+    //    for (iter-&amp;gt;Seek(&quot;foo&quot;); !iter-&amp;gt;done(); iter-&amp;gt;Next()) {
+    //      process(iter-&amp;gt;key(), iter-&amp;gt;value());
+    //    }
+    //    delete iter;
+    class GargantuanTable_Iterator {
+        ...
+    };
+&lt;/code&gt;&lt;/pre&gt;">    // Iterates over the contents of a GargantuanTable.  Sample usage:
+    //    GargantuanTable_Iterator* iter = table-&gt;NewIterator();
+    //    for (iter-&gt;Seek("foo"); !iter-&gt;done(); iter-&gt;Next()) {
+    //      process(iter-&gt;key(), iter-&gt;value());
+    //    }
+    //    delete iter;
+    class GargantuanTable_Iterator {
+        ...
+    };
+</code></pre><p>如果你觉得已经在文件顶部详细描述了该类, 想直接简单的来上一句 "完整描述见文件顶部" 也不打紧, 但务必确保有这类注释.</p><p>如果类有任何同步前提, 文档说明之. 如果该类的实例可被多线程访问, 要特别注意文档说明多线程环境下相关的规则和常量使用.</p><h3 id="7-4-"><a name="7-4-" href="#7-4-"></a>7.4. 函数注释</h3><blockquote>
+<p>tip<br>    函数声明处注释描述函数功能; 定义处描述函数实现.<br>    注释要言简意赅, 不要拖沓冗余, 复杂的东西简单化和简单的东西复杂化都是要被鄙视的;</p>
+</blockquote><h5 id="-"><a name="-" href="#-"></a>函数声明:</h5><p>注释位于声明之前, 对函数功能及用法进行描述. 注释使用叙述式 ("Opens the file") 而非指令式 ("Open the file"); 注释只是为了描述函数, 而不是命令函数做什么. 通常, 注释不会描述函数如何工作. 那是函数定义部分的事情.</p><p>函数声明处注释的内容:</p><ul>
+<li>函数的输入输出.</li>
+<li>对类成员函数而言: 函数调用期间对象是否需要保持引用参数, 是否会释放这些参数.</li>
+<li>如果函数分配了空间, 需要由调用者释放.</li>
+<li>参数是否可以为 <code>NULL</code>.</li>
+<li>是否存在函数使用上的性能隐患.</li>
+<li>如果函数是可重入的, 其同步前提是什么?</li>
+</ul><p>举例如下:</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;// Returns an iterator for this table.  It is the client's
+// responsibility to delete the iterator when it is done with it,
+// and it must not use the iterator once the GargantuanTable object
+// on which the iterator was created has been deleted.
+//
+// The iterator is initially positioned at the beginning of the table.
+//
+// This method is equivalent to:
+//    Iterator* iter = table-&amp;gt;NewIterator();
+//    iter-&amp;gt;Seek(&quot;&quot;);
+//    return iter;
+// If you are going to immediately seek to another place in the
+// returned iterator, it will be faster to use NewIterator()
+// and avoid the extra seek.
+Iterator* GetIterator() const;
+&lt;/code&gt;&lt;/pre&gt;">// Returns an iterator for this table.  It is the client's
+// responsibility to delete the iterator when it is done with it,
+// and it must not use the iterator once the GargantuanTable object
+// on which the iterator was created has been deleted.
+//
+// The iterator is initially positioned at the beginning of the table.
+//
+// This method is equivalent to:
+//    Iterator* iter = table-&gt;NewIterator();
+//    iter-&gt;Seek("");
+//    return iter;
+// If you are going to immediately seek to another place in the
+// returned iterator, it will be faster to use NewIterator()
+// and avoid the extra seek.
+Iterator* GetIterator() const;
+</code></pre><p>但也要避免罗罗嗦嗦, 或做些显而易见的说明. 下面的注释就没有必要加上 "returns false otherwise", 因为已经暗含其中了:</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;// Returns true if the table cannot hold any more entries.
+bool IsTableFull();
+&lt;/code&gt;&lt;/pre&gt;">// Returns true if the table cannot hold any more entries.
+bool IsTableFull();
+</code></pre><p>注释构造/析构函数时, 切记读代码的人知道构造/析构函数是干啥的, 所以 "destroys this object" 这样的注释是没有意义的. 注明构造函数对参数做了什么 (例如, 是否取得指针所有权) 以及析构函数清理了什么. 如果都是些无关紧要的内容, 直接省掉注释. 析构函数前没有注释是很正常的.</p><h5 id="-"><a name="-" href="#-"></a>函数定义:</h5><p>每个函数定义时要用注释说明函数功能和实现要点. 比如说说你用的编程技巧, 实现的大致步骤, 或解释如此实现的理由, 为什么前半部分要加锁而后半部分不需要.</p><p><strong>不要</strong> 从 <code>.h</code> 文件或其他地方的函数声明处直接复制注释. 简要重述函数功能是可以的, 但注释重点要放在如何实现上.</p><h3 id="7-5-"><a name="7-5-" href="#7-5-"></a>7.5. 变量注释</h3><blockquote>
+<p>tip<br>通常变量名本身足以很好说明变量用途. 某些情况下, 也需要额外的注释说明.</p>
+</blockquote><h5 id="-"><a name="-" href="#-"></a>类数据成员:</h5><p>每个类数据成员 (也叫实例变量或成员变量) 都应该用注释说明用途. 如果变量可以接受 <code>NULL</code> 或 <code>-1</code> 等警戒值, 须加以说明. 比如:</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;private:
+    // Keeps track of the total number of entries in the table.
+    // Used to ensure we do not go over the limit. -1 means
+    // that we don't yet know how many entries the table has.
+    int num_total_entries_;
+&lt;/code&gt;&lt;/pre&gt;">private:
+    // Keeps track of the total number of entries in the table.
+    // Used to ensure we do not go over the limit. -1 means
+    // that we don't yet know how many entries the table has.
+    int num_total_entries_;
+</code></pre><h5 id="-"><a name="-" href="#-"></a>全局变量:</h5><p>和数据成员一样, 所有全局变量也要注释说明含义及用途. 比如:</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;// The total number of tests cases that we run through in this regression test.
+const int kNumTestCases = 6;
+&lt;/code&gt;&lt;/pre&gt;">// The total number of tests cases that we run through in this regression test.
+const int kNumTestCases = 6;
+</code></pre><h3 id="7-6-"><a name="7-6-" href="#7-6-"></a>7.6. 实现注释</h3><blockquote>
+<p>tip::<br>对于代码中巧妙的, 晦涩的, 有趣的, 重要的地方加以注释.</p>
+</blockquote><h5 id="-"><a name="-" href="#-"></a>代码前注释:</h5><p>巧妙或复杂的代码段前要加注释. 比如:</p><blockquote>
+<pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;// Divide result by two, taking into account that x
+// contains the carry from the add.
+for (int i = 0; i &amp;lt; result-&amp;gt;size(); i++) {
+    x = (x &amp;lt;&amp;lt; 8) + (*result)[i];
+    (*result)[i] = x &amp;gt;&amp;gt; 1;
+    x &amp;amp;= 1;
+}
+&lt;/code&gt;&lt;/pre&gt;">// Divide result by two, taking into account that x
+// contains the carry from the add.
+for (int i = 0; i &lt; result-&gt;size(); i++) {
+    x = (x &lt;&lt; 8) + (*result)[i];
+    (*result)[i] = x &gt;&gt; 1;
+    x &amp;= 1;
+}
+</code></pre>
+</blockquote><h5 id="-"><a name="-" href="#-"></a>行注释:</h5><p>比较隐晦的地方要在行尾加入注释. 在行尾空两格进行注释. 比如:</p><blockquote>
+<pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;// If we have enough memory, mmap the data portion too.
+mmap_budget = max&amp;lt;int64&amp;gt;(0, mmap_budget - index_-&amp;gt;length());
+if (mmap_budget &amp;gt;= data_size_ &amp;amp;&amp;amp; !MmapData(mmap_chunk_bytes, mlock))
+    return;  // Error already logged.
+&lt;/code&gt;&lt;/pre&gt;">// If we have enough memory, mmap the data portion too.
+mmap_budget = max&lt;int64&gt;(0, mmap_budget - index_-&gt;length());
+if (mmap_budget &gt;= data_size_ &amp;&amp; !MmapData(mmap_chunk_bytes, mlock))
+    return;  // Error already logged.
+</code></pre>
+</blockquote><p>注意, 这里用了两段注释分别描述这段代码的作用, 和提示函数返回时错误已经被记入日志.</p><p>如果你需要连续进行多行注释, 可以使之对齐获得更好的可读性:</p><blockquote>
+<pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;DoSomething();                  // Comment here so the comments line up.
+DoSomethingElseThatIsLonger();  // Comment here so there are two spaces between
+                                // the code and the comment.
+{ // One space before comment when opening a new scope is allowed,
+  // thus the comment lines up with the following comments and code.
+  DoSomethingElse();  // Two spaces before line comments normally.
+}
+&lt;/code&gt;&lt;/pre&gt;">DoSomething();                  // Comment here so the comments line up.
+DoSomethingElseThatIsLonger();  // Comment here so there are two spaces between
+                                // the code and the comment.
+{ // One space before comment when opening a new scope is allowed,
+  // thus the comment lines up with the following comments and code.
+  DoSomethingElse();  // Two spaces before line comments normally.
+}
+</code></pre>
+</blockquote><h5 id="null-true-false-1-2-3-"><a name="null-true-false-1-2-3-" href="#null-true-false-1-2-3-"></a>NULL, true/false, 1, 2, 3...:</h5><p>向函数传入 <code>NULL</code>, 布尔值或整数时, 要注释说明含义, 或使用常量让代码望文知意. 例如, 对比:</p><blockquote>
+<p><strong class="highlight">warning</strong></p>
+<pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;bool success = CalculateSomething(interesting_value,
+                                  10,
+                                  false,
+                                  NULL);  // What are these arguments??
+&lt;/code&gt;&lt;/pre&gt;">bool success = CalculateSomething(interesting_value,
+                                  10,
+                                  false,
+                                  NULL);  // What are these arguments??
+</code></pre>
+<p>和:</p>
+<pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;bool success = CalculateSomething(interesting_value,
+                                  10,     // Default base value.
+                                  false,  // Not the first time we're calling this.
+                                  NULL);  // No callback.
+&lt;/code&gt;&lt;/pre&gt;">bool success = CalculateSomething(interesting_value,
+                                  10,     // Default base value.
+                                  false,  // Not the first time we're calling this.
+                                  NULL);  // No callback.
+</code></pre>
+</blockquote><p>或使用常量或描述性变量:</p><blockquote>
+<pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;const int kDefaultBaseValue = 10;
+const bool kFirstTimeCalling = false;
+Callback *null_callback = NULL;
+bool success = CalculateSomething(interesting_value,
+                                  kDefaultBaseValue,
+                                  kFirstTimeCalling,
+                                  null_callback);
+&lt;/code&gt;&lt;/pre&gt;">const int kDefaultBaseValue = 10;
+const bool kFirstTimeCalling = false;
+Callback *null_callback = NULL;
+bool success = CalculateSomething(interesting_value,
+                                  kDefaultBaseValue,
+                                  kFirstTimeCalling,
+                                  null_callback);
+</code></pre>
+</blockquote><h5 id="-"><a name="-" href="#-"></a>不允许:</h5><p>注意 <strong>永远不要</strong> 用自然语言翻译代码作为注释. 要假设读代码的人 C++ 水平比你高, 即便他/她可能不知道你的用意:</p><blockquote>
+<p><strong class="highlight">warning</strong></p>
+<pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;            // 现在, 检查 b 数组并确保 i 是否存在,
+            // 下一个元素是 i+1.
+            ...        // 天哪. 令人崩溃的注释.
+&lt;/code&gt;&lt;/pre&gt;">            // 现在, 检查 b 数组并确保 i 是否存在,
+            // 下一个元素是 i+1.
+            ...        // 天哪. 令人崩溃的注释.
+</code></pre>
+</blockquote><h3 id="7-7-"><a name="7-7-" href="#7-7-"></a>7.7. 标点, 拼写和语法</h3><blockquote>
+<p>tip<br>    注意标点, 拼写和语法; 写的好的注释比差的要易读的多.    </p>
+<p>对于 Chinese coders 来说, 用英文注释还是用中文注释, it is a problem, 但不管怎样, 注释是为了让别人看懂, 难道是为了炫耀编程语言之外的你的母语或外语水平吗；</p>
+</blockquote><p>注释的通常写法是包含正确大小写和结尾句号的完整语句. 短一点的注释 (如代码行尾注释) 可以随意点, 依然要注意风格的一致性. 完整的语句可读性更好, 也可以说明该注释是完整的, 而不是一些不成熟的想法.</p><p>虽然被别人指出该用分号时却用了逗号多少有些尴尬, 但清晰易读的代码还是很重要的. 正确的标点, 拼写和语法对此会有所帮助.</p><h3 id="7-8-todo-"><a name="7-8-todo-" href="#7-8-todo-"></a>7.8. TODO 注释</h3><blockquote>
+<p>tip<br>    对那些临时的, 短期的解决方案, 或已经够好但仍不完美的代码使用 <code>TODO</code> 注释.</p>
+<p><code>TODO</code> 很不错, 有时候, 注释确实是为了标记一些未完成的或完成的不尽如人意的地方, 这样一搜索, 就知道还有哪些活要干, 日志都省了.</p>
+</blockquote><p><code>TODO</code> 注释要使用全大写的字符串 <code>TODO</code>, 在随后的圆括号里写上你的大名, 邮件地址, 或其它身份标识. 冒号是可选的. 主要目的是让添加注释的人 (也是可以请求提供更多细节的人) 可根据规范的 <code>TODO</code> 格式进行查找. 添加 <code>TODO</code> 注释并不意味着你要自己来修正.</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;// TODO(kl@gmail.com): Use a &quot;*&quot; here for concatenation operator.
+// TODO(Zeke) change this to use relations.
+&lt;/code&gt;&lt;/pre&gt;">// TODO(kl@gmail.com): Use a "*" here for concatenation operator.
+// TODO(Zeke) change this to use relations.
+</code></pre><p>如果加 <code>TODO</code> 是为了在 "将来某一天做某事", 可以附上一个非常明确的时间 "Fix by November 2005"), 或者一个明确的事项 ("Remove this code when all clients can handle XML responses.").</p><h2 id="8-"><a name="8-" href="#8-"></a>8. 格式</h2><p>代码风格和格式确实比较随意, 但一个项目中所有人遵循同一风格是非常容易的. 个体未必同意下述每一处格式规则, 但整个项目服从统一的编程风格是很重要的, 只有这样才能让所有人能很轻松的阅读和理解代码.</p><h3 id="8-1-"><a name="8-1-" href="#8-1-"></a>8.1. 行长度</h3><blockquote>
+<p>tip<br>    每一行代码字符数不超过 80.</p>
+<p><strong class="highlight">kaer</strong>在Qt Creater中 “工具-&gt;选项-&gt;文本编辑器-&gt;显示" 选择 "显示右边空白在列:", 可以划出一个80列的分隔线,代码尽量不要超过这条线.</p>
+</blockquote><p>我们也认识到这条规则是有争议的, 但很多已有代码都已经遵照这一规则, 我们感觉一致性更重要.</p><p>优点:</p><p>提倡该原则的人主张强迫他们调整编辑器窗口大小很野蛮. 很多人同时并排开几个代码窗口, 根本没有多余空间拉伸窗口. 大家都把窗口最大尺寸加以限定, 并且 80 列宽是传统标准. 为什么要改变呢?</p><p>缺点:</p><p>反对该原则的人则认为更宽的代码行更易阅读. 80 列的限制是上个世纪 60 年代的大型机的古板缺陷; 现代设备具有更宽的显示屏, 很轻松的可以显示更多代码.</p><p>结论:</p><p>80 个字符是最大值.</p><p>特例:</p><ul>
+<li>如果一行注释包含了超过 80 字符的命令或 URL, 出于复制粘贴的方便允许该行超过 80 字符.</li>
+<li>包含长路径的 <code>#include</code> 语句可以超出80列. 但应该尽量避免.</li>
+<li>头文件保护可以无视该原则.</li>
+</ul><h3 id="8-2-ascii-"><a name="8-2-ascii-" href="#8-2-ascii-"></a>8.2. 非 ASCII 字符</h3><blockquote>
+<p>tip<br>    尽量不使用非 ASCII 字符, 使用时必须使用 UTF-8 编码.</p>
+</blockquote><p>即使是英文, 也不应将用户界面的文本硬编码到源代码中, 因此非 ASCII 字符要少用. 特殊情况下可以适当包含此类字符. 如, 代码分析外部数据文件时, 可以适当硬编码数据文件中作为分隔符的非 ASCII 字符串; 更常见的是 (不需要本地化的) 单元测试代码可能包含非 ASCII 字符串. 此类情况下, 应使用 UTF-8 编码, 因为很多工具都可以理解和处理 UTF-8 编码. 十六进制编码也可以, 能增强可读性的情况下尤其鼓励 —— 比如 <code>"\xEF\xBB\xBF"</code> 在 Unicode 中是 <em>零宽度 无间断</em> 的间隔符号, 如果不用十六进制直接放在 UTF-8 格式的源文件中, 是看不到的. (yospaly 注: <code>"\xEF\xBB\xBF"</code> 通常用作 UTF-8 with BOM 编码标记)</p><h3 id="8-3-"><a name="8-3-" href="#8-3-"></a>8.3. 空格还是制表位</h3><blockquote>
+<p>tip<br>    只使用空格, 每次缩进 2 个空格.</p>
+</blockquote><p>我们使用空格缩进. 不要在代码中使用制符表. 你应该设置编辑器将制符表转为空格.</p><h3 id="8-4-"><a name="8-4-" href="#8-4-"></a>8.4. 函数声明与定义</h3><blockquote>
+<p>tip<br>    返回类型和函数名在同一行, 参数也尽量放在同一行.
+<strong class="highlight">kaer</strong>如果需要分行，尽量使一行的最后一个字符为符号</p>
+</blockquote><p>函数看上去像这样:</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;ReturnType ClassName::FunctionName(Type par_name1, Type par_name2) {
+    DoSomething();
+    ...
+}
+&lt;/code&gt;&lt;/pre&gt;">ReturnType ClassName::FunctionName(Type par_name1, Type par_name2) {
+    DoSomething();
+    ...
+}
+</code></pre><p>如果同一行文本太多, 放不下所有参数:</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;ReturnType ClassName::ReallyLongFunctionName(Type par_name1,
+                                             Type par_name2,
+                                             Type par_name3) {
+    DoSomething();
+    ...
+}
+&lt;/code&gt;&lt;/pre&gt;">ReturnType ClassName::ReallyLongFunctionName(Type par_name1,
+                                             Type par_name2,
+                                             Type par_name3) {
+    DoSomething();
+    ...
+}
+</code></pre><p>甚至连第一个参数都放不下:</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;ReturnType LongClassName::ReallyReallyReallyLongFunctionName(
+        Type par_name1,  // 4 space indent
+        Type par_name2,
+        Type par_name3) {
+    DoSomething();  // 2 space indent
+    ...
+}
+&lt;/code&gt;&lt;/pre&gt;">ReturnType LongClassName::ReallyReallyReallyLongFunctionName(
+        Type par_name1,  // 4 space indent
+        Type par_name2,
+        Type par_name3) {
+    DoSomething();  // 2 space indent
+    ...
+}
+</code></pre><p>注意以下几点:</p><ul>
+<li><p>返回值总是和函数名在同一行;</p>
+</li>
+<li><p>左圆括号总是和函数名在同一行;</p>
+</li>
+<li><p>函数名和左圆括号间没有空格;</p>
+</li>
+<li><p>圆括号与参数间没有空格;</p>
+</li>
+<li><p>左大括号总在最后一个参数同一行的末尾处;</p>
+</li>
+<li><p>右大括号总是单独位于函数最后一行;</p>
+</li>
+<li><p>右圆括号和左大括号间总是有一个空格;</p>
+</li>
+<li><p>函数声明和实现处的所有形参名称必须保持一致;</p>
+</li>
+<li><p>所有形参应尽可能对齐;</p>
+</li>
+<li><p>缺省缩进为 <strong class="highlight">4</strong> 个空格;<strong class="highlight">kaer</strong></p>
+</li>
+<li><p>换行后的参数保持 <strong class="highlight">8</strong> 个空格的缩进;<strong class="highlight">kaer</strong></p>
+</li>
+</ul><p>如果函数声明成 <code>const</code>, 关键字 <code>const</code> 应与最后一个参数位于同一行:</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;// Everything in this function signature fits on a single line
+ReturnType FunctionName(Type par) const {
+    ...
+}
+
+// This function signature requires multiple lines, but
+// the const keyword is on the line with the last parameter.
+ReturnType ReallyLongFunctionName(Type par1,
+                                  Type par2) const {
+    ...
+}
+&lt;/code&gt;&lt;/pre&gt;">// Everything in this function signature fits on a single line
+ReturnType FunctionName(Type par) const {
+    ...
+}
+
+// This function signature requires multiple lines, but
+// the const keyword is on the line with the last parameter.
+ReturnType ReallyLongFunctionName(Type par1,
+                                  Type par2) const {
+    ...
+}
+</code></pre><p>如果有些参数没有用到, 在函数定义处将参数名注释起来:</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;// Always have named parameters in interfaces.
+class Shape {
+    public:
+        virtual void Rotate(double radians) = 0;
+}
+
+// Always have named parameters in the declaration.
+class Circle : public Shape {
+public:
+    virtual void Rotate(double radians);
+}
+
+// Comment out unused named parameters in definitions.
+void Circle::Rotate(double /*radians*/) {}
+&lt;/code&gt;&lt;/pre&gt;">// Always have named parameters in interfaces.
+class Shape {
+    public:
+        virtual void Rotate(double radians) = 0;
+}
+
+// Always have named parameters in the declaration.
+class Circle : public Shape {
+public:
+    virtual void Rotate(double radians);
+}
+
+// Comment out unused named parameters in definitions.
+void Circle::Rotate(double /*radians*/) {}
+</code></pre><p><strong class="highlight">warning</strong></p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;// Bad - if someone wants to implement later, it's not clear what the
+// variable means.
+    void Circle::Rotate(double) {}
+&lt;/code&gt;&lt;/pre&gt;">// Bad - if someone wants to implement later, it's not clear what the
+// variable means.
+    void Circle::Rotate(double) {}
+</code></pre><h3 id="8-5-"><a name="8-5-" href="#8-5-"></a>8.5. 函数调用</h3><blockquote>
+<p>tip<br>    尽量放在同一行, 否则, 将实参封装在圆括号中.</p>
+</blockquote><p>函数调用遵循如下形式:</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;bool retval = DoSomething(argument1, argument2, argument3);
+&lt;/code&gt;&lt;/pre&gt;">bool retval = DoSomething(argument1, argument2, argument3);
+</code></pre><p>如果同一行放不下, 可断为多行, 后面每一行都和第一个实参对齐, 左圆括号后和右圆括号前不要留空格:</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;bool retval = DoSomething(averyveryveryverylongargument1,
+                          argument2, argument3);
+&lt;/code&gt;&lt;/pre&gt;">bool retval = DoSomething(averyveryveryverylongargument1,
+                          argument2, argument3);
+</code></pre><p>如果函数参数很多, 出于可读性的考虑可以在每行只放一个参数:</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;bool retval = DoSomething(argument1,
+                          argument2,
+                          argument3,
+                          argument4);
+&lt;/code&gt;&lt;/pre&gt;">bool retval = DoSomething(argument1,
+                          argument2,
+                          argument3,
+                          argument4);
+</code></pre><p>如果函数名非常长, 以至于超过 :ref:<code>行最大长度 &lt;line-length&gt;</code>, 可以将所有参数独立成行:</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;if (...) {
+    ...
+    ...
+    if (...) {
+    DoSomethingThatRequiresALongFunctionName(
+            very_long_argument1,  // ==8== space indent
+            argument2,
+            argument3,
+            argument4);
+}
+&lt;/code&gt;&lt;/pre&gt;">if (...) {
+    ...
+    ...
+    if (...) {
+    DoSomethingThatRequiresALongFunctionName(
+            very_long_argument1,  // ==8== space indent
+            argument2,
+            argument3,
+            argument4);
+}
+</code></pre><h3 id="8-6-"><a name="8-6-" href="#8-6-"></a>8.6. 条件语句</h3><blockquote>
+<p>tip<br>    倾向于不在圆括号内使用空格. 关键字 <code>else</code> 另起一行.</p>
+</blockquote><p>对基本条件语句有两种可以接受的格式. 一种在圆括号和条件之间有空格, 另一种没有.</p><p>最常见的是没有空格的格式. 哪种都可以, 但 <em>保持一致性</em>. 如果你是在修改一个文件, 参考当前已有格式. 如果是写新的代码, 参考目录下或项目中其它文件. 还在徘徊的话, 就不要加空格了.</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;if (condition) {  // no spaces inside parentheses
+  ...  // 2 space indent.
+} else {  // The else goes on the same line as the closing brace.
+  ...
+}
+&lt;/code&gt;&lt;/pre&gt;">if (condition) {  // no spaces inside parentheses
+  ...  // 2 space indent.
+} else {  // The else goes on the same line as the closing brace.
+  ...
+}
+</code></pre><p>如果你更喜欢在圆括号内部加空格:</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;if ( condition ) {  // spaces inside parentheses - rare
+  ...  // 2 space indent.
+} else {  // The else goes on the same line as the closing brace.
+  ...
+}
+&lt;/code&gt;&lt;/pre&gt;">if ( condition ) {  // spaces inside parentheses - rare
+  ...  // 2 space indent.
+} else {  // The else goes on the same line as the closing brace.
+  ...
+}
+</code></pre><p>注意所有情况下 <code>if</code> 和左圆括号间都有个空格. 右圆括号和左大括号之间也要有个空格:
+    <strong class="highlight">warning</strong></p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;    if(condition)     // Bad - space missing after IF.
+    if (condition){   // Bad - space missing before {.
+    if(condition){    // Doubly bad.
+&lt;/code&gt;&lt;/pre&gt;">    if(condition)     // Bad - space missing after IF.
+    if (condition){   // Bad - space missing before {.
+    if(condition){    // Doubly bad.
+</code></pre><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;if (condition) {  // Good - proper space after IF and before {.
+&lt;/code&gt;&lt;/pre&gt;">if (condition) {  // Good - proper space after IF and before {.
+</code></pre><p>如果能增强可读性, 简短的条件语句允许写在同一行. 只有当语句简单并且没有使用 <code>else</code> 子句时使用:</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;if (x == kFoo) return new Foo();
+if (x == kBar) return new Bar();
+&lt;/code&gt;&lt;/pre&gt;">if (x == kFoo) return new Foo();
+if (x == kBar) return new Bar();
+</code></pre><p>如果语句有 <code>else</code> 分支则不允许:
+<strong class="highlight">warning</strong></p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;// Not allowed - IF statement on one line when there is an ELSE clause
+if (x) DoThis();
+else DoThat();
+&lt;/code&gt;&lt;/pre&gt;">// Not allowed - IF statement on one line when there is an ELSE clause
+if (x) DoThis();
+else DoThat();
+</code></pre><p>通常, 单行语句不需要使用大括号, 如果你喜欢用也没问题; 复杂的条件或循环语句用大括号可读性会更好. 也有一些项目要求 <code>if</code> 必须总是使用大括号:</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;if (condition)
+    DoSomething();  // 4 space indent.
+
+if (condition) {
+    DoSomething();  // 4 space indent.
+}
+&lt;/code&gt;&lt;/pre&gt;">if (condition)
+    DoSomething();  // 4 space indent.
+
+if (condition) {
+    DoSomething();  // 4 space indent.
+}
+</code></pre><p>但如果语句中某个 <code>if-else</code> 分支使用了大括号的话, 其它分支也必须使用:
+<strong class="highlight">warning</strong></p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;// Not allowed - curly on IF but not ELSE
+if (condition) {
+    foo;
+} else
+    bar;
+
+// Not allowed - curly on ELSE but not IF
+if (condition)
+    foo;
+else {
+    bar;
+}
+&lt;/code&gt;&lt;/pre&gt;">// Not allowed - curly on IF but not ELSE
+if (condition) {
+    foo;
+} else
+    bar;
+
+// Not allowed - curly on ELSE but not IF
+if (condition)
+    foo;
+else {
+    bar;
+}
+</code></pre><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;// Curly braces around both IF and ELSE required because
+// one of the clauses used braces.
+if (condition) {
+  foo;
+} else {
+  bar;
+}
+&lt;/code&gt;&lt;/pre&gt;">// Curly braces around both IF and ELSE required because
+// one of the clauses used braces.
+if (condition) {
+  foo;
+} else {
+  bar;
+}
+</code></pre><h3 id="8-7-"><a name="8-7-" href="#8-7-"></a>8.7. 循环和开关选择语句</h3><blockquote>
+<p>tip<br>    <code>switch</code> 语句可以使用大括号分段. 空循环体应使用 <code>{}</code> 或 <code>continue</code>.</p>
+</blockquote><p><code>switch</code> 语句中的 <code>case</code> 块可以使用大括号也可以不用, 取决于你的个人喜好. 如果用的话, 要按照下文所述的方法.</p><p>如果有不满足 <code>case</code> 条件的枚举值, <code>switch</code> 应该总是包含一个 <code>default</code> 匹配 (如果有输入值没有 case 去处理, 编译器将报警). 如果 <code>default</code> 应该永远执行不到, 简单的加条 <code>assert</code>:</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;switch (var) {
+  case 0: {  // 2 space indent
+    ...      // 4 space indent
+    break;
+  }
+  case 1: {
+    ...
+    break;
+  }
+  default: {
+    assert(false);
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;">switch (var) {
+  case 0: {  // 2 space indent
+    ...      // 4 space indent
+    break;
+  }
+  case 1: {
+    ...
+    break;
+  }
+  default: {
+    assert(false);
+  }
+}
+</code></pre><p>空循环体应使用 <code>{}</code> 或 <code>continue</code>, 而不是一个简单的分号.</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;while (condition) {
+  // Repeat test until it returns false.
+}
+for (int i = 0; i &amp;lt; kSomeNumber; ++i) {}  // Good - empty body.
+while (condition) continue;  // Good - continue indicates no logic.
+&lt;/code&gt;&lt;/pre&gt;">while (condition) {
+  // Repeat test until it returns false.
+}
+for (int i = 0; i &lt; kSomeNumber; ++i) {}  // Good - empty body.
+while (condition) continue;  // Good - continue indicates no logic.
+</code></pre><p><strong class="highlight">warning</strong></p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;    while (condition);  // Bad - looks like part of do/while loop.
+&lt;/code&gt;&lt;/pre&gt;">    while (condition);  // Bad - looks like part of do/while loop.
+</code></pre><h3 id="8-8-"><a name="8-8-" href="#8-8-"></a>8.8. 指针和引用表达式</h3><blockquote>
+<p>tip<br>    句点或箭头前后不要有空格. 指针/地址操作符 (<code>*, &amp;</code>) 之后不能有空格.</p>
+</blockquote><p>下面是指针和引用表达式的正确使用范例:</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;x = *p;
+p = &amp;amp;x;
+x = r.y;
+x = r-&amp;gt;y;
+&lt;/code&gt;&lt;/pre&gt;">x = *p;
+p = &amp;x;
+x = r.y;
+x = r-&gt;y;
+</code></pre><p>注意:</p><ul>
+<li>在访问成员时, 句点或箭头前后没有空格.</li>
+<li>指针操作符 <code>*</code> 或 <code>&amp;</code> 后没有空格.</li>
+</ul><p>在声明指针变量或参数时, 星号与类型或变量名紧挨都可以:</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;// These are fine, space preceding.
+char *c;
+const string &amp;amp;str;
+
+// These are fine, space following.
+char* c;    // but remember to do &quot;char* c, *d, *e, ...;&quot;!
+const string&amp;amp; str;
+&lt;/code&gt;&lt;/pre&gt;">// These are fine, space preceding.
+char *c;
+const string &amp;str;
+
+// These are fine, space following.
+char* c;    // but remember to do "char* c, *d, *e, ...;"!
+const string&amp; str;
+</code></pre><p><strong class="highlight">warning</strong></p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;char * c;  // Bad - spaces on both sides of *
+const string &amp;amp; str;  // Bad - spaces on both sides of &amp;amp;
+&lt;/code&gt;&lt;/pre&gt;">char * c;  // Bad - spaces on both sides of *
+const string &amp; str;  // Bad - spaces on both sides of &amp;
+</code></pre><p>在单个文件内要保持风格一致, 所以, 如果是修改现有文件, 要遵照该文件的风格.</p><h3 id="8-9-"><a name="8-9-" href="#8-9-"></a>8.9. 布尔表达式</h3><blockquote>
+<p>tip<br>    如果一个布尔表达式超过 :ref:<code>标准行宽 &lt;line-length&gt;</code>, 断行方式要统一一下.</p>
+</blockquote><p>下例中, 逻辑与 (<code>&amp;&amp;</code>) 操作符总位于行尾:</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;if (this_one_thing &amp;gt; this_other_thing &amp;amp;&amp;amp;
+    a_third_thing == a_fourth_thing &amp;amp;&amp;amp;
+    yet_another &amp;amp; last_one) {
+  ...
+}
+&lt;/code&gt;&lt;/pre&gt;">if (this_one_thing &gt; this_other_thing &amp;&amp;
+    a_third_thing == a_fourth_thing &amp;&amp;
+    yet_another &amp; last_one) {
+  ...
+}
+</code></pre><p>注意, 上例的逻辑与 (<code>&amp;&amp;</code>) 操作符均位于行尾. 可以考虑额外插入圆括号, 合理使用的话对增强可读性是很有帮助的.</p><h3 id="8-10-"><a name="8-10-" href="#8-10-"></a>8.10. 函数返回值</h3><blockquote>
+<p>tip<br>    <code>return</code> 表达式中不要用圆括号包围.</p>
+</blockquote><p>函数返回时不要使用圆括号:</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;return x;  // not return(x);
+&lt;/code&gt;&lt;/pre&gt;">return x;  // not return(x);
+</code></pre><h3 id="8-11-"><a name="8-11-" href="#8-11-"></a>8.11. 变量及数组初始化</h3><blockquote>
+<p>tip<br>    用 <code>=</code> 或 <code>()</code> 均可.</p>
+</blockquote><p>在二者中做出选择; 下面的方式都是正确的:</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;int x = 3;
+int x(3);
+string name(&quot;Some Name&quot;);
+string name = &quot;Some Name&quot;;
+&lt;/code&gt;&lt;/pre&gt;">int x = 3;
+int x(3);
+string name("Some Name");
+string name = "Some Name";
+</code></pre><h3 id="8-12-"><a name="8-12-" href="#8-12-"></a>8.12. 预处理指令</h3><blockquote>
+<p>tip<br>    预处理指令不要缩进, 从行首开始.</p>
+</blockquote><p>即使预处理指令位于缩进代码块中, 指令也应从行首开始.</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;// Good - directives at beginning of line
+  if (lopsided_score) {
+#if DISASTER_PENDING      // Correct -- Starts at beginning of line
+    DropEverything();
+#endif
+    BackToNormal();
+  }
+&lt;/code&gt;&lt;/pre&gt;">// Good - directives at beginning of line
+  if (lopsided_score) {
+#if DISASTER_PENDING      // Correct -- Starts at beginning of line
+    DropEverything();
+#endif
+    BackToNormal();
+  }
+</code></pre><p><strong class="highlight">warning</strong></p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;// Bad - indented directives
+  if (lopsided_score) {
+    #if DISASTER_PENDING  // Wrong!  The &quot;#if&quot; should be at beginning of line
+    DropEverything();
+    #endif                // Wrong!  Do not indent &quot;#endif&quot;
+    BackToNormal();
+  }
+&lt;/code&gt;&lt;/pre&gt;">// Bad - indented directives
+  if (lopsided_score) {
+    #if DISASTER_PENDING  // Wrong!  The "#if" should be at beginning of line
+    DropEverything();
+    #endif                // Wrong!  Do not indent "#endif"
+    BackToNormal();
+  }
+</code></pre><h3 id="8-13-"><a name="8-13-" href="#8-13-"></a>8.13. 类格式</h3><blockquote>
+<p>tip<br>    访问控制块的声明依次序是 <code>public:</code>, <code>protected:</code>, <code>private:</code>, <strong class="highlight">无缩进</strong></p>
+</blockquote><p>类声明 (对类注释不了解的话, 参考 :ref:<code>类注释 &lt;class-comments&gt;</code>) 的基本格式如下:</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;class MyClass : public OtherClass {
+public:      // Note the 1 space indent!
+    MyClass();  // Regular 2 space indent.
+    explicit MyClass(int var);
+    ~MyClass() {}
+
+    void SomeFunction();
+    void SomeFunctionThatDoesNothing() {
+    }
+
+    void set_some_var(int var) { some_var_ = var; }
+    int some_var() const { return some_var_; }
+
+private:
+    bool SomeInternalFunction();
+
+    int some_var_;
+    int some_other_var_;
+    DISALLOW_COPY_AND_ASSIGN(MyClass);
+};
+&lt;/code&gt;&lt;/pre&gt;">class MyClass : public OtherClass {
+public:      // Note the 1 space indent!
+    MyClass();  // Regular 2 space indent.
+    explicit MyClass(int var);
+    ~MyClass() {}
+
+    void SomeFunction();
+    void SomeFunctionThatDoesNothing() {
+    }
+
+    void set_some_var(int var) { some_var_ = var; }
+    int some_var() const { return some_var_; }
+
+private:
+    bool SomeInternalFunction();
+
+    int some_var_;
+    int some_other_var_;
+    DISALLOW_COPY_AND_ASSIGN(MyClass);
+};
+</code></pre><p>注意事项:</p><ul>
+<li><p>所有基类名应在 80 列限制下尽量与子类名放在同一行.</p>
+</li>
+<li><p>关键词 <code>public:</code>, <code>protected:</code>, <code>private:</code> 要缩进 1 个空格.</p>
+</li>
+<li><p>除第一个关键词 (一般是 <code>public</code>) 外, 其他关键词前要空一行. 如果类比较小的话也可以不空.</p>
+</li>
+<li><p>这些关键词后不要保留空行.</p>
+</li>
+<li><p><code>public</code> 放在最前面, 然后是 <code>protected</code>, 最后是 <code>private</code>.</p>
+</li>
+<li><p>关于声明顺序的规则请参考 :ref:<code>声明顺序 &lt;declaration-order&gt;</code> 一节.</p>
+</li>
+</ul><h3 id="8-14-"><a name="8-14-" href="#8-14-"></a>8.14. 初始化列表</h3><blockquote>
+<p>tip<br>    构造函数初始化列表放在同一行或按四格缩进并排几行.</p>
+</blockquote><p>下面两种初始化列表方式都可以接受:</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;// When it all fits on one line:
+MyClass::MyClass(int var) : some_var_(var), some_other_var_(var + 1) {
+&lt;/code&gt;&lt;/pre&gt;">// When it all fits on one line:
+MyClass::MyClass(int var) : some_var_(var), some_other_var_(var + 1) {
+</code></pre><p>或</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;// When it requires multiple lines, indent 4 spaces, putting the colon on
+// the first initializer line:
+MyClass::MyClass(int var)
+    : some_var_(var),             // 4 space indent
+      some_other_var_(var + 1) {  // lined up
+  ...
+  DoSomething();
+  ...
+}
+&lt;/code&gt;&lt;/pre&gt;">// When it requires multiple lines, indent 4 spaces, putting the colon on
+// the first initializer line:
+MyClass::MyClass(int var)
+    : some_var_(var),             // 4 space indent
+      some_other_var_(var + 1) {  // lined up
+  ...
+  DoSomething();
+  ...
+}
+</code></pre><h3 id="8-15-"><a name="8-15-" href="#8-15-"></a>8.15. 名字空间格式化</h3><blockquote>
+<p>tip<br>    名字空间内容不缩进.</p>
+</blockquote><p>名字空间不要增加额外的缩进层次, 例如:</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;        namespace {
+
+        void foo() {  // Correct.  No extra indentation within namespace.
+          ...
+        }
+
+        }  // namespace
+&lt;/code&gt;&lt;/pre&gt;">        namespace {
+
+        void foo() {  // Correct.  No extra indentation within namespace.
+          ...
+        }
+
+        }  // namespace
+</code></pre><p>不要缩进名字空间:
+<strong class="highlight">warning</strong></p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;namespace {
+
+  // Wrong.  Indented when it should not be.
+  void foo() {
+    ...
+  }
+
+}  // namespace
+&lt;/code&gt;&lt;/pre&gt;">namespace {
+
+  // Wrong.  Indented when it should not be.
+  void foo() {
+    ...
+  }
+
+}  // namespace
+</code></pre><h3 id="8-16-"><a name="8-16-" href="#8-16-"></a>8.16. 水平留白</h3><blockquote>
+<p>tip<br>    水平留白的使用因地制宜. 永远不要在行尾添加没意义的留白.</p>
+</blockquote><p>常规:</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;void f(bool b) {  // Open braces should always have a space before them.
+  ...
+int i = 0;  // Semicolons usually have no space before them.
+int x[] = { 0 };  // Spaces inside braces for array initialization are
+int x[] = {0};    // optional.  If you use them, put them on both sides!
+// Spaces around the colon in inheritance and initializer lists.
+class Foo : public Bar {
+ public:
+  // For inline function implementations, put spaces between the braces
+  // and the implementation itself.
+  Foo(int b) : Bar(), baz_(b) {}  // No spaces inside empty braces.
+  void Reset() { baz_ = 0; }  // Spaces separating braces from implementation.
+  ...
+&lt;/code&gt;&lt;/pre&gt;">void f(bool b) {  // Open braces should always have a space before them.
+  ...
+int i = 0;  // Semicolons usually have no space before them.
+int x[] = { 0 };  // Spaces inside braces for array initialization are
+int x[] = {0};    // optional.  If you use them, put them on both sides!
+// Spaces around the colon in inheritance and initializer lists.
+class Foo : public Bar {
+ public:
+  // For inline function implementations, put spaces between the braces
+  // and the implementation itself.
+  Foo(int b) : Bar(), baz_(b) {}  // No spaces inside empty braces.
+  void Reset() { baz_ = 0; }  // Spaces separating braces from implementation.
+  ...
+</code></pre><p>添加冗余的留白会给其他人编辑时造成额外负担. 因此, 行尾不要留空格. 如果确定一行代码已经修改完毕, 将多余的空格去掉; 或者在专门清理空格时去掉（确信没有其他人在处理). (yospaly 注: 现在大部分代码编辑器稍加设置后, 都支持自动删除行首/行尾空格, 如果不支持, 考虑换一款编辑器或 IDE)</p><p>循环和条件语句:</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;if (b) {          // Space after the keyword in conditions and loops.
+} else {          // Spaces around else.
+}
+while (test) {}   // There is usually no space inside parentheses.
+switch (i) {
+for (int i = 0; i &amp;lt; 5; ++i) {
+switch ( i ) {    // Loops and conditions may have spaces inside
+if ( test ) {     // parentheses, but this is rare.  Be consistent.
+for ( int i = 0; i &amp;lt; 5; ++i ) {
+for ( ; i &amp;lt; 5 ; ++i) {  // For loops always have a space after the
+  ...                   // semicolon, and may have a space before the
+                        // semicolon.
+switch (i) {
+  case 1:         // No space before colon in a switch case.
+    ...
+  case 2: break;  // Use a space after a colon if there's code after it.
+&lt;/code&gt;&lt;/pre&gt;">if (b) {          // Space after the keyword in conditions and loops.
+} else {          // Spaces around else.
+}
+while (test) {}   // There is usually no space inside parentheses.
+switch (i) {
+for (int i = 0; i &lt; 5; ++i) {
+switch ( i ) {    // Loops and conditions may have spaces inside
+if ( test ) {     // parentheses, but this is rare.  Be consistent.
+for ( int i = 0; i &lt; 5; ++i ) {
+for ( ; i &lt; 5 ; ++i) {  // For loops always have a space after the
+  ...                   // semicolon, and may have a space before the
+                        // semicolon.
+switch (i) {
+  case 1:         // No space before colon in a switch case.
+    ...
+  case 2: break;  // Use a space after a colon if there's code after it.
+</code></pre><p>操作符:</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;x = 0;              // Assignment operators always have spaces around
+                    // them.
+x = -5;             // No spaces separating unary operators and their
+++x;                // arguments.
+if (x &amp;amp;&amp;amp; !y)
+  ...
+v = w * x + y / z;  // Binary operators usually have spaces around them,
+v = w*x + y/z;      // but it's okay to remove spaces around factors.
+v = w * (x + z);    // Parentheses should have no spaces inside them.
+&lt;/code&gt;&lt;/pre&gt;">x = 0;              // Assignment operators always have spaces around
+                    // them.
+x = -5;             // No spaces separating unary operators and their
+++x;                // arguments.
+if (x &amp;&amp; !y)
+  ...
+v = w * x + y / z;  // Binary operators usually have spaces around them,
+v = w*x + y/z;      // but it's okay to remove spaces around factors.
+v = w * (x + z);    // Parentheses should have no spaces inside them.
+</code></pre><p>模板和转换:</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;vector&amp;lt;string&amp;gt; x;           // No spaces inside the angle
+y = static_cast&amp;lt;char*&amp;gt;(x);  // brackets (&amp;lt; and &amp;gt;), before
+                            // &amp;lt;, or between &amp;gt;( in a cast.
+vector&amp;lt;char *&amp;gt; x;           // Spaces between type and pointer are
+                            // okay, but be consistent.
+set&amp;lt;list&amp;lt;string&amp;gt; &amp;gt; x;       // C++ requires a space in &amp;gt; &amp;gt;.
+set&amp;lt; list&amp;lt;string&amp;gt; &amp;gt; x;      // You may optionally make use
+                       // symmetric spacing in &amp;lt; &amp;lt;.
+&lt;/code&gt;&lt;/pre&gt;">vector&lt;string&gt; x;           // No spaces inside the angle
+y = static_cast&lt;char*&gt;(x);  // brackets (&lt; and &gt;), before
+                            // &lt;, or between &gt;( in a cast.
+vector&lt;char *&gt; x;           // Spaces between type and pointer are
+                            // okay, but be consistent.
+set&lt;list&lt;string&gt; &gt; x;       // C++ requires a space in &gt; &gt;.
+set&lt; list&lt;string&gt; &gt; x;      // You may optionally make use
+                       // symmetric spacing in &lt; &lt;.
+</code></pre><h3 id="8-17-"><a name="8-17-" href="#8-17-"></a>8.17. 垂直留白</h3><blockquote>
+<p>tip<br>    垂直留白越少越好.</p>
+</blockquote><p>这不仅仅是规则而是原则问题了: 不在万不得已, 不要使用空行. 尤其是: 两个函数定义之间的空行不要超过 2 行, 函数体首尾不要留空行, 函数体中也不要随意添加空行.</p><p>基本原则是: 同一屏可以显示的代码越多, 越容易理解程序的控制流. 当然, 过于密集的代码块和过于疏松的代码块同样难看, 取决于你的判断. 但通常是垂直留白越少越好.</p><p><strong class="highlight">warning</strong> 函数首尾不要有空行</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;void Function() {
+
+  // Unnecessary blank lines before and after
+
+}
+&lt;/code&gt;&lt;/pre&gt;">void Function() {
+
+  // Unnecessary blank lines before and after
+
+}
+</code></pre><p><strong class="highlight">warning</strong> 代码块首尾不要有空行</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;while (condition) {
+  // Unnecessary blank line after
+
+}
+if (condition) {
+
+  // Unnecessary blank line before
+}
+&lt;/code&gt;&lt;/pre&gt;">while (condition) {
+  // Unnecessary blank line after
+
+}
+if (condition) {
+
+  // Unnecessary blank line before
+}
+</code></pre><p><code>if-else</code> 块之间空一行是可以接受的:</p><pre><code class="lang-c++ hljs" data-origin="&lt;pre&gt;&lt;code class=&quot;lang-c++&quot;&gt;if (condition) {
+  // Some lines of code too small to move to another function,
+  // followed by a blank line.
+
+} else {
+  // Another block of code
+}
+&lt;/code&gt;&lt;/pre&gt;">if (condition) {
+  // Some lines of code too small to move to another function,
+  // followed by a blank line.
+
+} else {
+  // Another block of code
+}
+</code></pre><h2 id="9-"><a name="9-" href="#9-"></a>9. 规则特例</h2><p>前面说明的编程习惯基本都是强制性的. 但所有优秀的规则都允许例外, 这里就是探讨这些特例.</p><h3 id="9-1-"><a name="9-1-" href="#9-1-"></a>9.1. 现有不合规范的代码</h3><blockquote>
+<p>tip<br>    对于现有不符合既定编程风格的代码可以网开一面.</p>
+</blockquote><p>当你修改使用其他风格的代码时, 为了与代码原有风格保持一致可以不使用本指南约定. 如果不放心可以与代码原作者或现在的负责人员商讨, 记住, <em>一致性</em> 包括原有的一致性.</p><h3 id="9-2-windows-"><a name="9-2-windows-" href="#9-2-windows-"></a>9.2. Windows 代码</h3><blockquote>
+<p>tip
+    Windows 程序员有自己的编程习惯, 主要源于 Windows 头文件和其它 Microsoft 代码. 我们希望任何人都可以顺利读懂你的代码, 所以针对所有平台的 C++ 编程只给出一个单独的指南.</p>
+</blockquote><p>如果你习惯使用 Windows 编码风格, 这儿有必要重申一下某些你可能会忘记的指南:</p><ul>
+<li><p>不要使用匈牙利命名法 (比如把整型变量命名成 <code>iNum</code>). 使用 Google 命名约定, 包括对源文件使用 <code>.cc</code> 扩展名.</p>
+</li>
+<li><p>Windows 定义了很多原生类型的同义词 , 如 <code>DWORD</code>, <code>HANDLE</code> 等等. 在调用 Windows API 时这是完全可以接受甚至鼓励的. 但还是尽量使用原有的 C++ 类型, 例如, 使用 <code>const TCHAR *</code> 而不是 <code>LPCTSTR</code>.</p>
+</li>
+<li><p>使用 Microsoft Visual C++ 进行编译时, 将警告级别设置为 3 或更高, 并将所有 warnings 当作 errors 处理.</p>
+</li>
+<li><p>不要使用 <code>#pragma once</code>; 而应该使用 Google 的头文件保护规则. 头文件保护的路径应该相对于项目根目录 (yospaly 注: 如 <code>#ifndef SRC_DIR_BAR_H_</code>, 参考 :ref:<code>#define 保护 &lt;define_guard&gt;</code> 一节).</p>
+</li>
+<li><p>除非万不得已, 不要使用任何非标准的扩展, 如 <code>#pragma</code> 和 <code>__declspec</code>. 允许使用 <code>__declspec(dllimport)</code> 和 <code>__declspec(dllexport)</code>; 但你必须通过宏来使用, 比如 <code>DLLIMPORT</code> 和 <code>DLLEXPORT</code>, 这样其他人在分享使用这些代码时很容易就去掉这些扩展.</p>
+</li>
+</ul><p>在 Windows 上, 只有很少的一些情况下, 我们可以偶尔违反规则:</p><ul>
+<li><p>通常我们禁止使用多重继承, 但在使用 COM 和 ATL/WTL 类时可以使用多重继承. 为了实现 COM 或 ATL/WTL 类/接口, 你可能不得不使用多重实现继承.</p>
+</li>
+<li><p>虽然代码中不应该使用异常, 但是在 ATL 和部分 STL（包括 Visual C++ 的 STL) 中异常被广泛使用. 使用 ATL 时, 应定义 <code>_ATL_NO_EXCEPTIONS</code> 以禁用异常. 你要研究一下是否能够禁用 STL 的异常, 如果无法禁用, 启用编译器异常也可以. (注意这只是为了编译 STL, 自己代码里仍然不要含异常处理.)</p>
+</li>
+<li><p>通常为了利用头文件预编译, 每个每个源文件的开头都会包含一个名为 <code>StdAfx.h</code> 或 <code>precompile.h</code> 的文件. 为了使代码方便与其他项目共享, 避免显式包含此文件 (<code>precompile.cc</code>), 使用 <code>/FI</code> 编译器选项以自动包含.</p>
+</li>
+<li><p>资源头文件通常命名为 <code>resource.h</code>, 且只包含宏的, 不需要遵守本风格指南.</p>
+</li>
+</ul>
+
+<footer style="position:fixed; font-size:.8em; text-align:right; bottom:0px; margin-left:-25px; height:20px; width:100%;">generated by <a href="http://pad.haroopress.com" target="_blank">haroopad</a></footer>
+</body>
+</html>
